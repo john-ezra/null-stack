@@ -19,7 +19,7 @@ Done when the request has one path and the siblings that path needs are open.
 
 ## Drafting
 
-Read two neighbouring documents in the repo before writing; they, not this file, decide headings and list forms.
+Read up to two relevant neighbouring documents in the repo before writing. Existing local conventions, not this file, decide headings and list forms. With one neighbour, use it and proceed; with none, proceed using any supplied local conventions, or simple headings and lists suited to the task if none are available. Reuse context files already supplied instead of searching for them. Do not invent neighbours or search unrelated files to reach a count.
 
 1. **Fix the remit and the paths.** State what the document covers and where adjacent work goes. List its paths, one per substantively different case. Done when every case the document handles is on the list and every adjacent case has a named destination.
 

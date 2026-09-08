@@ -16,7 +16,7 @@ Prose bound for a document or file, or handed over to be polished, gets two edit
 Hold these through steps 2 to 4. The first two outrank every catalogue entry and voice test; when a fix would break either, the fix is not made.
 
 - Meaning stays. No claim about the subject changes truth value. In a rewrite, preserve the author's stance, including deliberate neutrality; clarify judgments without adding, removing, or reversing them. Original drafting may include your own reasoned judgment. Delete text only when it carries no fact or stance, and never add a fact you do not have. When a fix needs a source, number, or mechanism, use one you have; without it, preserve the author's meaning in a rewrite or omit the unsupported claim in an original draft.
-- Only your own text. The catalogue and the voice tests apply to prose you are writing now. Quotations, code, commands and their output, file contents, templates, and anything the user or a tool supplied are reproduced byte for byte, dashes and curly quotes included.
+- Only prose in scope. The catalogue and the voice tests apply to prose you are writing now and prose the user has designated for revision, including supplied prose in files and templates. Outside that revision scope, reproduce supplied material byte for byte. Quotations, code, commands and their output, and evidence reproduced verbatim remain byte-for-byte protected even within prose being revised, dashes and curly quotes included.
 - The author's register stays. Formal, casual, terse, or technical, the voice tests adjust within it and never override it.
 - A fix that trips another entry is not done. Swapping a dash for parentheses is the usual case.
 
