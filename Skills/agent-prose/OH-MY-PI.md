@@ -29,7 +29,7 @@ Copy and customize the project starter independently of the shared library. Its 
 
 `workflows/SKILL.md` in the starter is an optional example. Copying it does not register or adopt it. After customization, the user can explicitly ask the agent to follow that file without registering a command. To register it, choose a unique lowercase name, make the directory name match its frontmatter, and add that directory's parent to the project's skill roots. Preserve the central library roots when setting a project-level `skills.customDirectories` array. Keep `disable-model-invocation: true`.
 
-Null Stack's root `AGENTS.md` is for maintaining this collection; it is not the project template or a user-level instruction file. Keep existing user instructions when setting up the library. Changing live agent configuration requires explicit authorization.
+Keep existing user instructions when setting up the library. Changing live agent configuration requires explicit authorization.
 
 ## Skill loading and resource paths
 

@@ -9,7 +9,6 @@ A collection of agent skills, shared workflows, and project templates. Use a ski
 | [Skills/](Skills/) | Standalone capabilities, with supporting files inside each skill's directory |
 | [Workflows/](Workflows/) | Shared processes that compose skills, assign artifact homes, and remain manually invoked |
 | [Templates/Project/](Templates/Project/) | A workflow-neutral project starter, including an optional development-workflow example |
-| [AGENTS.md](AGENTS.md) | Instructions for maintaining Null Stack itself |
 
 A reusable skill owns what its artifact contains. A workflow owns where the artifact goes and how it participates in the process. Project guides supply local facts and conventions; they do not silently adopt a workflow.
 
@@ -44,8 +43,8 @@ The [workflow example](Templates/Project/workflows/SKILL.md) is optional. It ill
 
 An adapted workflow is project-owned, like the copied guides. Updating Null Stack does not overwrite those copies. This differs from using a shared workflow directly from the canonical checkout.
 
-Before using the completed starter, check that every retained document link resolves inside the project, no example values remain as accidental configuration, and any workflow choice is explicit. Do not copy Null Stack's root `AGENTS.md` as the project starter.
+Before using the completed starter, check that every retained document link resolves inside the project, no example values remain as accidental configuration, and any workflow choice is explicit.
 
-## Maintain the collection
+## Packaging guidance
 
-Follow the root [AGENTS.md](AGENTS.md) when changing this collection. For packaging and the conditions under which an agent should read supporting material, use [the packaging guidance](Skills/agent-prose/PACKAGING.md).
+For resource layout, frontmatter, and supporting-file conventions, read [the packaging guidance](Skills/agent-prose/PACKAGING.md).
