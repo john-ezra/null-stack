@@ -1,0 +1,51 @@
+# Null Stack
+
+A collection of agent skills, shared workflows, and project templates. Use a skill on its own, invoke a shared workflow when you want its process, or adapt the starter for a project.
+
+## What lives here
+
+| Location | Purpose |
+| --- | --- |
+| [Skills/](Skills/) | Standalone capabilities, with supporting files inside each skill's directory |
+| [Workflows/](Workflows/) | Shared processes that compose skills, assign artifact homes, and remain manually invoked |
+| [Templates/Project/](Templates/Project/) | A workflow-neutral project starter, including an optional development-workflow example |
+| [AGENTS.md](AGENTS.md) | Instructions for maintaining Null Stack itself |
+
+A reusable skill owns what its artifact contains. A workflow owns where the artifact goes and how it participates in the process. Project guides supply local facts and conventions; they do not silently adopt a workflow.
+
+## Use the shared library
+
+Keep one canonical checkout of `Skills/` and `Workflows/` rather than copying them into every project. Changes to that checkout affect the projects using it. Copy an individual skill with its supporting files when sharing it independently.
+
+Oh My Pi is the first supported host. For configuration, discovery precedence, manual invocation, and context loading, read [Oh My Pi setup and reachability](Skills/agent-prose/OH-MY-PI.md). This repository does not install resources or change an agent's live configuration automatically.
+
+The instructions aim to be portable, but other hosts have not been verified. Skills can also need ordinary task tools such as Git, a runnable project, or the Linear CLI. A missing capability is not permission to install it.
+
+The shared [lifecycle](Workflows/lifecycle/SKILL.md) defines a Linear-based process. It is not a default imposed on every project. Invoke it explicitly when that is the process you want. Supply the consuming project's confirmed Linear context before using it; this library contains no configured workspace, team, or initiative.
+
+## Start a project
+
+Copy the contents of [Templates/Project/](Templates/Project/) into the destination project without overwriting existing guidance. For an existing project, reconcile its current instructions before adopting the starter.
+
+```text
+project/
+  AGENTS.md
+  agent-docs/
+    git.md
+    code-style.md
+    linear.md
+  workflows/
+    SKILL.md
+```
+
+Fill the overview and the three guides using their editing instructions and labeled examples. Replace examples with confirmed project facts and remove the editing notes when done. The project overview routes to Git, code style, and Linear guidance only when those topics are relevant. It contains no lifecycle or artifact-home table.
+
+The [workflow example](Templates/Project/workflows/SKILL.md) is optional. It illustrates a development process using the existing skills and Linear, with artifact destinations and approval gates explained in the file. Review and adapt it before explicitly adopting it. If the project does not want the example, leave it out and remove its mention from the copied `AGENTS.md`. The other starter files and individual skills do not depend on it.
+
+An adapted workflow is project-owned, like the copied guides. Updating Null Stack does not overwrite those copies. This differs from using a shared workflow directly from the canonical checkout.
+
+Before using the completed starter, check that every retained document link resolves inside the project, no example values remain as accidental configuration, and any workflow choice is explicit. Do not copy Null Stack's root `AGENTS.md` as the project starter.
+
+## Maintain the collection
+
+Follow the root [AGENTS.md](AGENTS.md) when changing this collection. For packaging and the conditions under which an agent should read supporting material, use [the packaging guidance](Skills/agent-prose/PACKAGING.md).
