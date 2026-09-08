@@ -17,7 +17,7 @@ Before designing, changing, or reviewing an area of the toolkit, or creating or 
 
 ## Use the shared library
 
-Keep one canonical checkout of `Skills/` and `Workflows/` rather than copying them into every project. Changes to that checkout affect the projects using it. Copy an individual skill with its supporting files when sharing it independently.
+Keep one canonical checkout of `Skills/` and `Workflows/` rather than copying them into every project. Changes to that checkout affect the projects using it. Copy an individual skill with its supporting files and a copy of [LICENSE](LICENSE) when sharing it independently.
 
 Oh My Pi is the first supported host. For configuration, discovery precedence, manual invocation, and context loading, read [Oh My Pi setup and reachability](Skills/agent-prose/OH-MY-PI.md). This repository does not install resources or change an agent's live configuration automatically.
 
@@ -27,7 +27,7 @@ The shared [lifecycle](Workflows/lifecycle/SKILL.md) defines a Linear-based proc
 
 ## Start a project
 
-Copy the contents of [Templates/Project/](Templates/Project/) into the destination project without overwriting existing guidance. Include the entire `agent-docs/` directory, including `design-decisions/`. For an existing project, reconcile its current instructions before adopting the starter.
+Copy the contents of [Templates/Project/](Templates/Project/) into the destination project without overwriting existing guidance. Include the entire `agent-docs/` directory, including `design-decisions/`. Preserve the toolkit's [license notice](#license) without replacing the destination project's license. For an existing project, reconcile its current instructions before adopting the starter.
 
 ```text
 project/
@@ -53,3 +53,9 @@ Before using the completed starter, check that every retained local document lin
 ## Packaging guidance
 
 For resource layout, frontmatter, and supporting-file conventions, read [the packaging guidance](Skills/agent-prose/PACKAGING.md).
+
+## License
+
+Null Stack's skills, workflows, templates, and documentation are licensed under the [MIT License](LICENSE).
+
+You may use, modify, and redistribute the material, including commercially. Include the copyright and permission notices in copies or substantial portions. When copying material into another project, keep a copy of [LICENSE](LICENSE) alongside it or in the project's third-party license notices. You do not have to license the rest of your project under MIT.
