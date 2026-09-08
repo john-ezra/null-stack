@@ -7,6 +7,8 @@ allowed-tools: Bash(linear:*)
 
 How the skills bind to Linear. Each skill produces an artifact; this reference says where it lives and which state moves. Rigor for each artifact is the skill's; command flags and traps are the `linear` skill's. Every Linear write here happens on the user's word. Approval of spec content is not permission to publish it or change Linear state unless the user's request also authorizes those writes.
 
+Before any Linear write, complete [target binding](#target-binding-states-and-labels).
+
 ## The map
 
 | Level | Linear | Artifact | Home |
@@ -35,11 +37,17 @@ Before designing, changing, or reviewing an area, use the project's decision gui
 | PR merges | | close-out comment | issue to `Done` |
 | Project complete | | intent moved to `agent-docs/archive/<slug>.md`, landed on main | overview link repointed (the `projectUpdate` recipe in the `linear` skill), project to `completed` |
 
-## States
+## Target binding, states, and labels
 
-No integration moves an issue; every transition is one `linear issue update <ID> --state "<Name>"` at the moment its event fires. The states are Linear's stock six, unchanged on every team, so a new team needs no setup.
+Read the project's Linear guide and confirm its workspace, team, project-selection rule, initiative association, and constraints. Inspect the issue states in that team, the labels available to it, and any project statuses needed for the requested event. If the guide says Linear is not used, resolve that with the user before proceeding.
 
-| Event | State |
+Confirm an event-to-state mapping and permitted label policy for this target. Use the project's adopted workflow mapping when one exists. The names below are defaults; every state reference in this workflow, including Events and Rules, resolves through the confirmed mapping. Bind project statuses separately from team issue states. A category alone does not select a state: when several states share a category, the mapping must name the exact destination for each event.
+
+Binding is complete when every transition has an exact existing destination and issue creation has an available, permitted type label. Resolve missing, ambiguous, or conflicting states and labels with the user before writing. Do not create or rename configuration or silently choose a near match.
+
+No integration moves an issue; every transition is one `linear issue update <ID> --state "<Mapped name>"` at the moment its event fires.
+
+| Event | Default state |
 |---|---|
 | Captured, or a placeholder published: no approved spec yet | `Backlog` |
 | Spec written and approved | `Todo` |
@@ -47,7 +55,7 @@ No integration moves an issue; every transition is one `linear issue update <ID>
 | PR merges | `Done`, plus the close-out comment |
 | Dropped, superseded, or absorbed by a re-slice | `Canceled`, or `Duplicate` when another issue already covers it |
 
-Every issue gets one type label and a priority at creation. Labels: `Bug`, `Feature`, `Improvement`, `Chore`, `Audit`. Priority 1 Urgent drops everything, 2 High is next up, 3 Medium is planned work and the default, 4 Low is nice to have.
+Every issue gets one type label and a priority at creation. Use an existing type label allowed by the confirmed policy. Default labels, only when available and permitted, are `Bug`, `Feature`, `Improvement`, `Chore`, and `Audit`. Priority 1 Urgent drops everything, 2 High is next up, 3 Medium is planned work and the default, 4 Low is nice to have.
 
 The close-out comment is one line, `Done in PR #NN (<merge sha>).`, posted with `issue comment add --body-file`. One extra sentence only when what shipped diverged from the spec; change-specific rationale lives in the PR, which links any lasting design rationale in decision records.
 
