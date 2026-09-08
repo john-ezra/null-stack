@@ -16,6 +16,9 @@ How the skills bind to Linear. Each skill produces an artifact; this reference s
 | Unit of work | Issue | Spec | Issue description |
 | Route | Document on the issue | Plan | Linear Document attached to the issue |
 | Record | PR and close-out comment | `pr` skill, close-out below | GitHub, issue comment |
+| Lasting design choice | No tracker object required | Design decision | The repository and path named by the project's decision guide |
+
+Before designing, changing, or reviewing an area, use the project's decision guide to find and read its relevant records. For recording or revising a lasting choice, read [decision-record guidance](skill://software-design/DECISIONS.md) for selection, format, evidence, and permissions. If the project has no record home, propose `agent-docs/design-decisions/<slug>.md` in the repository whose design it describes and resolve ownership before writing. That repository need not be the one holding the intent. Project guidance and these records remain usable without invoking this workflow.
 
 ## Events
 
@@ -27,6 +30,7 @@ How the skills bind to Linear. Each skill produces an artifact; this reference s
 | Standalone requirement approved | `spec`, standalone path | team-level issue description with a `Source:` link to the approved report or requirement in the first line, no project or intent required | approved spec to `Todo`, one label and a priority |
 | Issue picked up | `plan`, unless trivial by its own test | Linear Document on the issue, title `Plan` | issue to `In Progress`; the project's first pickup also moves it to `started` |
 | Building | | branch, as the repo makes branches | |
+| A lasting design choice is accepted, at any stage | `software-design`'s decision-record support | project decision record, only with file-write permission; plans and PRs link it | none |
 | PR opens | `pr` | the PR | |
 | PR merges | | close-out comment | issue to `Done` |
 | Project complete | | intent moved to `agent-docs/archive/<slug>.md`, landed on main | overview link repointed (the `projectUpdate` recipe in the `linear` skill), project to `completed` |
@@ -45,7 +49,7 @@ No integration moves an issue; every transition is one `linear issue update <ID>
 
 Every issue gets one type label and a priority at creation. Labels: `Bug`, `Feature`, `Improvement`, `Chore`, `Audit`. Priority 1 Urgent drops everything, 2 High is next up, 3 Medium is planned work and the default, 4 Low is nice to have.
 
-The close-out comment is one line, `Done in PR #NN (<merge sha>).`, posted with `issue comment add --body-file`. One extra sentence only when what shipped diverged from the spec; rationale lives in the PR.
+The close-out comment is one line, `Done in PR #NN (<merge sha>).`, posted with `issue comment add --body-file`. One extra sentence only when what shipped diverged from the spec; change-specific rationale lives in the PR, which links any lasting design rationale in decision records.
 
 ## Rules
 
@@ -55,8 +59,9 @@ The close-out comment is one line, `Done in PR #NN (<merge sha>).`, posted with 
 - Each fact has one home. The intent cites the initiative for standing constraints. Blocking order is native relations, never prose in a body. The intent is linked from Linear, never copied into it.
 - Publish blockers first, so every edge names a real id.
 - Re-slice flat. Every slice is a top-level issue; the hierarchy is the blocking graph. When the frontier reaches a placeholder that is more than one session, re-scope it into the first real slice, create the siblings, and re-examine every edge that pointed at the placeholder: it meant "blocked by all of it," and each dependent now needs a specific sibling.
-- Each document freezes at the last responsible moment, on its own clock: the intent once shaped, the spec at pickup, the plan at pickup, the PR at merge. Before its moment it is malleable; after it, only the cause its skill names reopens it.
+- Work artifacts freeze at the last responsible moment, on their own clocks: the intent once shaped, the spec at pickup, the plan at pickup, the PR at merge. Before its moment an artifact is malleable; after it, only the cause its skill names reopens it.
 - The plan is frozen at pickup. A changed route is recorded in the PR's Decisions section, never edited into the Document. A dead approach gets a new Document on the same issue, titled `Plan 2`, then `Plan 3`; earlier ones stay as the record of what was tried, and Decisions says why the route changed.
+- Design decisions do not freeze at pickup or merge. Revisit them under the shared decision-record guidance when their reasons or constraints change; a better argument requires an explicit revision, not a silent exception.
 - One issue per PR.
 - The Linear move is always `issue update --state`; `issue start` is not used.
 - Completion is the operator's call. When every issue is terminal and the stop criteria appear met, say so and ask. On the word, the three completion actions happen together, in the order the Events row gives.

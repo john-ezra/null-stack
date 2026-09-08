@@ -9,8 +9,11 @@ A collection of agent skills, shared workflows, and project templates. Use a ski
 | [Skills/](Skills/) | Standalone capabilities, with supporting files inside each skill's directory |
 | [Workflows/](Workflows/) | Shared processes that compose skills, assign artifact homes, and remain manually invoked |
 | [Templates/Project/](Templates/Project/) | A workflow-neutral project starter, including an optional development-workflow example |
+| [agent-docs/design-decisions/README.md](agent-docs/design-decisions/README.md) | Guide to this toolkit's public design-decision records |
 
-A reusable skill owns what its artifact contains. A workflow owns where the artifact goes and how it participates in the process. Project guides supply local facts and conventions; they do not silently adopt a workflow.
+A reusable skill owns what its artifact contains. A workflow owns where its work artifacts go and how they participate in the process. Project guides supply local facts and conventions, including the home for lasting design decisions; they do not silently adopt a workflow.
+
+Before designing, changing, or reviewing an area of the toolkit, or creating or revising one of its design-decision records, read the [toolkit decision guide](agent-docs/design-decisions/README.md) and the relevant records it helps you find. These records concern Null Stack itself. The starter's decision directory is for a consuming project's own records; it does not copy the toolkit's decisions.
 
 ## Use the shared library
 
@@ -24,7 +27,7 @@ The shared [lifecycle](Workflows/lifecycle/SKILL.md) defines a Linear-based proc
 
 ## Start a project
 
-Copy the contents of [Templates/Project/](Templates/Project/) into the destination project without overwriting existing guidance. For an existing project, reconcile its current instructions before adopting the starter.
+Copy the contents of [Templates/Project/](Templates/Project/) into the destination project without overwriting existing guidance. Include the entire `agent-docs/` directory, including `design-decisions/`. For an existing project, reconcile its current instructions before adopting the starter.
 
 ```text
 project/
@@ -33,17 +36,19 @@ project/
     git.md
     code-style.md
     linear.md
+    design-decisions/
+      README.md
   workflows/
     SKILL.md
 ```
 
-Fill the overview and the three guides using their editing instructions and labeled examples. Replace examples with confirmed project facts and remove the editing notes when done. The project overview routes to Git, code style, and Linear guidance only when those topics are relevant. It contains no lifecycle or artifact-home table.
+Fill the overview and the project-specific sections of the four guides using their editing instructions and labeled examples. Replace examples with confirmed project facts and remove the editing notes when done. The project overview routes to Git, code style, Linear, and design-decision guidance only when those topics are relevant. The decision guide locates the project's records and points to shared record guidance; it contains no sample accepted decisions. The overview contains no lifecycle or artifact-home table.
 
 The [workflow example](Templates/Project/workflows/SKILL.md) is optional. It illustrates a development process using the existing skills and Linear, with artifact destinations and approval gates explained in the file. Review and adapt it before explicitly adopting it. If the project does not want the example, leave it out and remove its mention from the copied `AGENTS.md`. The other starter files and individual skills do not depend on it.
 
 An adapted workflow is project-owned, like the copied guides. Updating Null Stack does not overwrite those copies. This differs from using a shared workflow directly from the canonical checkout.
 
-Before using the completed starter, check that every retained document link resolves inside the project, no example values remain as accidental configuration, and any workflow choice is explicit.
+Before using the completed starter, check that every retained local document link resolves inside the project, shared skill links resolve through the host, no example values remain as accidental configuration, and any workflow choice is explicit.
 
 ## Packaging guidance
 

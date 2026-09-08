@@ -1,6 +1,6 @@
 ---
 name: software-design
-description: Design or review code structure using A Philosophy of Software Design. Use when designing or reshaping a module, class, API, interface, or seam; choosing adapters or making code testable or AI-navigable; reviewing complexity in code, diffs, or PRs; or when the user mentions Ousterhout's design philosophy, deep modules, or codebase design. Design quality, not bug hunting.
+description: Design or review code structure using A Philosophy of Software Design, and record lasting design decisions. Use when designing or reshaping a module, class, API, interface, or seam; choosing adapters or making code testable or AI-navigable; reviewing complexity in code, diffs, or PRs; writing or revising a design decision record; or when the user mentions Ousterhout's design philosophy, deep modules, or codebase design. Design quality, not bug hunting.
 disable-model-invocation: false
 ---
 
@@ -29,6 +29,10 @@ Working code isn't enough. The primary goal is a great design that also happens 
 Grow the system by abstractions, not by features: the first time a feature needs an abstraction, design that abstraction cleanly and whole, not as a minimal special-purpose version to generalize later, and not by letting a sequence of tests discover it one passing case at a time; settle the interface first, then test against it. Work in the project's terms: before designing or reviewing, read its domain glossary and relevant ADRs where they exist, and use those terms for the domain and [MODULE-DESIGN.md](MODULE-DESIGN.md)'s for the architecture.
 
 *Too far:* a whole-system design up front; the right structure emerges from real changes to running code, so invest in small improvements tied to each change, never a speculative redesign. A deadline, or a refactor that would break other teams, can force the quick fix; then ask what the cleanest design is within that constraint, look for an approach nearly as clean at a fraction of the cost, and name the deferred refactor so time gets allocated for it, rather than letting the patch stand silently.
+
+## Decision records
+
+When reading, writing, or revising a lasting design decision, follow [DECISIONS.md](DECISIONS.md). Use the project's decision guide for its home. A record-only request follows that support file without running the design or review branches below.
 
 ## Branch: focused design guidance
 

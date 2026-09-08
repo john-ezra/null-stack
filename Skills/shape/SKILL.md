@@ -38,6 +38,8 @@ Before the first question, establish capture permission once. Use the request wh
 
 With capture permission, record each decision as the user confirms it and each branch as they park it, without asking again for each edit. Without permission, leave documents untouched and carry the decided and parked lists in each reply. Capture immediately in the chosen place, not at the end.
 
+When an accepted choice concerns lasting system design, use the project's decision guide for its home and [decision-record guidance](skill://software-design/DECISIONS.md) for capture. Permission to edit an intent or another capture document does not extend to a separate decision record; without that permission, keep the choice and proposed destination in chat.
+
 ## Done
 
 The decision frontier is empty: every branch of the tree visited, every decision either resolved by the user or explicitly parked as open, nothing silently assumed. Close by stating what was decided and what was parked.

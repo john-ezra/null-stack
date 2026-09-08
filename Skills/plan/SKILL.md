@@ -12,7 +12,7 @@ Trivial work runs off the spec alone. Trivial means the spec's acceptance criter
 
 ## Steps
 
-1. **Read the spec.** Take in what it delivers, its acceptance criteria, and what blocks it. Read the code the change touches. Resolve every open decision now: look up what the environment can answer, put every judgment call to the user. The plan comes after decisions, not to defer them.
+1. **Read the spec.** Take in what it delivers, its acceptance criteria, and what blocks it. Read the code the change touches and the relevant design decisions through the project's decision guide. Resolve every open decision now: look up what the environment can answer, put every judgment call to the user. The plan comes after decisions, not to defer them. When this settles a lasting design choice, follow [decision-record guidance](skill://software-design/DECISIONS.md) and the project's record home within the user's write authorization. Link the record from the plan rather than duplicate its rationale.
 
 2. **Draft the plan** using the template below. Fill every section with specifics: real file paths, real commands, real expected outputs.
 
