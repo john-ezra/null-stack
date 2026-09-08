@@ -1,6 +1,6 @@
 ---
 name: agent-prose
-description: Write or audit agent-facing instructions: skills, context files like AGENTS.md, and what they point to. Use when creating or changing one, when the user names one to review, or to record their standing conventions. Not for end-user prose, code design, or running a skill.
+description: "Write or audit agent-facing instructions: skills, context files like AGENTS.md, and what they point to. Use when creating or changing one, when the user names one to review, or to record their standing conventions. Not for end-user prose, code design, or running a skill."
 disable-model-invocation: false
 ---
 

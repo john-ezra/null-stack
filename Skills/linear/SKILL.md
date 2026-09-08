@@ -1,6 +1,6 @@
 ---
 name: linear
-description: Linear CLI mechanics. Use for any `linear` command: flags, file-based markdown bodies, issues, relations, projects, documents, initiatives, and the GraphQL fallback when no flag covers the operation.
+description: "Linear CLI mechanics. Use for any `linear` command: flags, file-based markdown bodies, issues, relations, projects, documents, initiatives, and the GraphQL fallback when no flag covers the operation."
 disable-model-invocation: false
 allowed-tools: Bash(linear:*), Bash(curl:*)
 ---
