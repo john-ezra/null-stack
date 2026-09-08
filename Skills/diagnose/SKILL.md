@@ -1,10 +1,16 @@
 ---
 name: diagnose
-description: Find a bug's cause by experiment before fixing it. Use when asked to debug or diagnose, when a fix did not hold, or when a failure is flaky, a regression, or a slowdown with no obvious trigger. A panic, stack trace, or exception in the project's own code, with no core dump, is this skill; a process that segfaulted or dumped core on this machine is `diagnose-crash`.
+description: Find a bug's cause by experiment before fixing it, including failed fixes, flaky failures, regressions, unexplained slowdowns, and project-code panics, stack traces, or exceptions without a local segfault or core dump. Use when asked to debug or diagnose; local segfaults and core dumps go to `diagnose-crash` only when available, otherwise stop and report local crash diagnosis as unsupported without offering a substitute procedure.
 disable-model-invocation: false
 ---
 
 Run a failure down to a stated cause with the evidence that selected it. Use observations and experiments against a running reproduction, each with its prediction written before it runs.
+
+## Scope
+
+Local segfaults and core dumps are outside this procedure. Check the host's available skills before loading `diagnose-crash`: if present, hand off to it; otherwise stop and report that local crash diagnosis is unsupported because the optional skill is unavailable. Do not substitute this procedure or invent a crash-diagnosis workflow.
+
+Project-code panics, stack traces, and exceptions without a local segfault or core dump stay here.
 
 ## Mode
 
