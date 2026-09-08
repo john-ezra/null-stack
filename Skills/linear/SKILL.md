@@ -121,11 +121,13 @@ query($filter: IssueFilter!) { issues(filter: $filter) { nodes { identifier titl
 GRAPHQL
 ```
 
-Raw HTTP, when the CLI's `api` command is not enough:
+Raw HTTP, when the CLI's `api` command is not enough. Pass the authorization header through stdin with `-H @-` so the token stays out of process arguments. Keep shell tracing and curl verbose/trace output off when handling credentials.
 
 ```bash
 curl -s -X POST https://api.linear.app/graphql \
   -H "Content-Type: application/json" \
-  -H "Authorization: $(linear auth token)" \
-  -d '{"query": "{ viewer { id } }"}'
+  -H @- \
+  -d '{"query": "{ viewer { id } }"}' <<EOF
+Authorization: $(linear auth token)
+EOF
 ```
