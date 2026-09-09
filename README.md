@@ -1,13 +1,15 @@
 # Null Stack
 
-A collection of agent skills and project templates. Use a skill on its own, adapt the starter for a project, or author a project-owned workflow.
+A collection of agent skills, a copy-ready project starter, and authoring templates. Use a skill on its own, adopt the starter's defaults, or assemble project guidance and workflows to suit your work.
 
 ## What lives here
 
 | Location | Purpose |
 | --- | --- |
 | [Skills/](Skills/) | Standalone capabilities, with supporting files inside each skill's directory |
-| [Templates/Project/](Templates/Project/) | Project guides, including an optional lifecycle policy, with no preselected task workflows |
+| [Starter/](Starter/) | Opinionated, copy-ready project guidance with concrete defaults and empty sections for project-specific facts |
+| [Templates/Project/AGENTS.md](Templates/Project/AGENTS.md) | Annotated project overview template, with its original instructions, examples, rules, and companion guides |
+| [Templates/Project/agent-docs/development.md](Templates/Project/agent-docs/development.md) | Authoring source for an optional project lifecycle policy |
 | [Templates/Workflows/SKILL.md](Templates/Workflows/SKILL.md) | Plain Markdown authoring source with a generic workflow template and labeled `fix-bug` and `add-feature` examples |
 
 A reusable skill owns its task procedure and artifact semantics, including revision and close-out. Project lifecycle policy chooses entry thresholds, artifact destinations, project approval gates and write rules, tracker event mapping, and effort completion. Short task workflows select skills and their order without repeating procedures or policy. Topic guides own Git conventions, Linear bindings and constraints, and lasting design decisions; shared skill defaults defer to project-owned record rules. Copying project guidance does not adopt a lifecycle or execute a workflow.
@@ -35,7 +37,7 @@ For example, [software-design/DEEPENING.md](Skills/software-design/DEEPENING.md)
 
 ## Start a project
 
-Copy the contents of [Templates/Project/](Templates/Project/) into the destination project without overwriting existing guidance. Include the entire `agent-docs/` directory, including `design-decisions/`. Preserve the toolkit's [license notice](#license) without replacing the destination project's license. For an existing project, reconcile its current instructions before adopting the starter.
+Copy the contents of [Starter/](Starter/) into the destination project without overwriting existing guidance. Include the entire `agent-docs/` directory, including `design-decisions/`. Preserve the toolkit's [license notice](#license) without replacing the destination project's license. For an existing project, reconcile its current instructions before adopting the starter.
 
 ```text
 project/
@@ -49,27 +51,29 @@ project/
       README.md
 ```
 
-Fill the overview and the project-specific sections of the five guides using each file's authoring instructions. Replace examples with confirmed project facts and remove the editing notes when done. The overview routes to the guides and does not summarize lifecycle policy. The decision guide contains the project's record home, selection and maintenance rules, and record format; it needs no installed skill or harness-specific resource resolver and contains no sample accepted decisions.
+The starter's `AGENTS.md` keeps empty sections for the project name and purpose, tech stack, commands, and project structure. Fill them with confirmed facts when customizing; leaving them empty does not block ordinary work. The operating defaults, guide pointers, and permission rules are already filled in. The starter selects conservative Git conventions, follows the consuming repository's tooling, and keeps design-decision rules and format locally. It selects no formal development lifecycle or task workflows and configures no Linear integration.
 
-The [development lifecycle template](Templates/Project/agent-docs/development.md) is an authoring document with bounded no-lifecycle and finite-effort blocks. Replace the entire file with one adapted block, without its outer fence, editing instructions, or unused examples. The finished guide holds project choices and conditional pointers, normally roughly 400-700 words; do not retain the authoring source or copy skill procedures into it. Confirm thresholds, artifact homes, approval and write rules, exact tracker mappings when used, resizing, and archive policy. You can adopt a lifecycle without task workflows, explicitly select no lifecycle, or point to another chosen policy. Keep one policy authority.
+For help filling project-specific sections, read the annotations and examples in the [AGENTS.md template](Templates/Project/AGENTS.md). The instructions live in the template itself, not in a separate customization guide. The starter's pointer names the source path and uses the public template URL so it survives copying. Ordinary work needs no network access, toolkit checkout, installed skills, or host-specific resolver.
+
+To adopt a lifecycle, use [the lifecycle authoring template](Templates/Project/agent-docs/development.md) to write the project's `agent-docs/development.md`. Keep only the adapted policy block, without authoring instructions or outer fences. Adapt its links to the consuming overview, including the Rules anchor: the annotated template uses `#6-rules`, while the starter uses `#rules`. Policy and task workflows are separate choices; the starter's no-lifecycle default needs no further setup.
+
+### Author a project AGENTS.md
+
+Use [Templates/Project/AGENTS.md](Templates/Project/AGENTS.md) for the annotated template. It includes the original section instructions, filled examples, document pointers, rules, and "How to use this template" section. Copy it with its adjacent `agent-docs/` directory, then follow those instructions to adapt the overview and companion guides.
+
+The template is authoring material; `Starter/` is the opinionated, ready-to-use alternative. Keep authoring notes and unused examples out of the finished project. Neither adopted form depends on this toolkit during ordinary work.
 
 ### Author a project workflow
 
-The starter contains no workflow files. When a project needs one, use the separate [Templates/Workflows/SKILL.md](Templates/Workflows/SKILL.md) authoring source. It contains fenced full `SKILL.md` blocks: a generic template and labeled `fix-bug` and `add-feature` examples. Those examples are not installed commands or preselected project recipes. Do not register the authoring source.
+The starter contains no workflow files. When a project needs one, use [Templates/Workflows/SKILL.md](Templates/Workflows/SKILL.md). It contains a generic template and labeled `fix-bug` and `add-feature` examples, not installed commands or preselected recipes.
 
-```text
-Templates/
-  Workflows/
-    SKILL.md          # Authoring source, not a generated workflow
-```
+Write the chosen block to `workflows/<chosen-name>/SKILL.md` in the project. Customize its skill sequence and task-specific modes or conditions, match its frontmatter `name` to the directory, and keep `disable-model-invocation: true`. Remove authoring instructions, outer fences, and unused blocks. Keep procedures in the skills and policy in the project guide. The workflow's `../../agent-docs/development.md` pointer resolves from its final project directory; retain that guide even when no lifecycle is selected.
 
-Write the chosen block to `workflows/<chosen-name>/SKILL.md` in the project. Customize its skill sequence and task-specific modes or conditions, match its frontmatter `name` to the directory, and keep `disable-model-invocation: true`. Remove all authoring instructions, outer fences, and unused template or example blocks from the generated file. Keep skill procedures in the skills and lifecycle rules in the project guide. The workflow's `../../agent-docs/development.md` pointer resolves from its final project directory; retain that guide and make the project's policy choice explicit before running the workflow.
+The user can ask an agent to follow the generated workflow by filesystem path without registering a command. For optional host registration, follow [Oh My Pi setup and reachability](Skills/agent-prose/OH-MY-PI.md). Preserve unrelated configured roots and never register `Templates/` or the toolkit's `Starter/`. Changing live configuration requires separate explicit permission.
 
-The user can ask an agent to follow `workflows/<chosen-name>/SKILL.md` by filesystem path without registering a command. For optional host registration, add that project's `workflows/` alongside the central `Skills/` root, preserving unrelated configured roots. Never register `Templates/`. Host-specific configuration and invocation belong in [Oh My Pi setup and reachability](Skills/agent-prose/OH-MY-PI.md). Changing live configuration requires separate explicit permission.
+Copied guides and generated workflows are project-owned. Updating Null Stack does not overwrite them. Reading them does not authorize execution or publication, and individual skills remain usable on their own.
 
-The copied guides and generated workflows are project-owned. Updating Null Stack does not overwrite them. Individual skills remain usable on their own.
-
-Before using the completed starter, check it outside the toolkit checkout. Every retained local link and anchor must resolve from the consuming project, required skills must be available for adopted integrations or workflows, and the lifecycle choice must be explicit. No authoring instructions, outer example fences, unused examples, or host-specific resource URIs belong in the finished development guide. Reading the result does not authorize execution or publication.
+Check adopted or adapted guidance outside the toolkit checkout. Every retained local link and anchor must resolve from the consuming project, and required skills must be available for any integrations or workflows it adopts. Check the starter's public template link before distribution. Authoring instructions belong in the templates, not the finished project; the starter's empty factual sections and template pointer stay, as do formats for documents created during ordinary work.
 
 ## Packaging guidance
 

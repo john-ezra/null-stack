@@ -16,7 +16,7 @@ skills:
 
 Replace the example path with the checkout's absolute path. Merge this entry into the existing configuration, retaining unrelated settings and skill roots. Array settings replace lower-precedence arrays rather than appending to them, so a project override must include every root that project still needs.
 
-OMP scans one directory level below each custom root for `SKILL.md`. Register `Skills/`, not the repository root or `Templates/`. A custom-directory skill overrides a same-named provider skill; among custom directories, the first occurrence wins. Check duplicate names when switching checkouts so an older copy does not remain selected.
+OMP scans one directory level below each custom root for `SKILL.md`. Register `Skills/`, not the repository root, `Starter/`, or `Templates/`. A custom-directory skill overrides a same-named provider skill; among custom directories, the first occurrence wins. Check duplicate names when switching checkouts so an older copy does not remain selected.
 
 Check the configured roots with `omp config get skills.customDirectories --json`. Then start a new session and confirm that `/skill:intent` is available. To inspect its resolved file without running the procedure, ask that session to read `skill://intent` as source material.
 
@@ -24,15 +24,15 @@ The shared `Workflows/` root is retired. Existing users must separately authoriz
 
 ## Adopt project guidance separately
 
-Copy and customize the project starter independently of the shared library. Its `AGENTS.md` belongs at the consuming project root. The adjacent `agent-docs/` directory has five guides, reached by task-specific pointers rather than inlined into every session. The decision guide keeps record rules and format in the project without requiring an installed skill or resource resolver.
+Adopt [Starter/](../../Starter/) independently of the shared library, following the [toolkit's copy instructions](../../README.md#start-a-project). Its `AGENTS.md` belongs at the consuming project root. The adjacent `agent-docs/` directory has five guides, reached by task-specific pointers rather than inlined into every session. The decision guide keeps record rules and format locally without requiring an installed skill or resource resolver.
 
-The starter's [agent-docs/development.md](../../Templates/Project/agent-docs/development.md) is the lifecycle policy's only template home. Follow its authoring instructions and replace the entire source with one adapted policy block or its explicit no-lifecycle option; do not retain outer fences or unused examples. It has no skill frontmatter or command. Skills own procedures and artifact semantics; the retained guide owns project policy choices and conditional pointers. A project can adopt policy without a task workflow. Individual skills remain available alone.
+The starter's [development guide](../../Starter/agent-docs/development.md) is finished project guidance with no formal lifecycle selected. Its overview keeps empty factual sections and a customization-only public link to the [AGENTS.md template](../../Templates/Project/AGENTS.md), with its source path named for local navigation. The template contains its own instructions and examples and is copied with its companion `agent-docs/` templates when authoring a project. To adopt a lifecycle, use the [lifecycle authoring template](../../Templates/Project/agent-docs/development.md); the output is a plain project guide, not a skill or command. Individual skills remain available without a lifecycle or workflow.
 
 The starter contains no task workflows. To author one, use [Templates/Workflows/SKILL.md](../../Templates/Workflows/SKILL.md), a plain Markdown source document containing fenced full `SKILL.md` blocks for a generic template and labeled `fix-bug` and `add-feature` examples. It is not a registered or runnable skill, and those examples are not installed commands. Write the chosen block to `workflows/<chosen-name>/SKILL.md` in the project, removing authoring instructions, outer fences, and unused blocks. Keep only the skill sequence, task-specific modes or conditions, and project-guide pointer in the generated body.
 
-Match the generated workflow's frontmatter `name` to its directory and keep `disable-model-invocation: true`. Copying guidance or generating a workflow does not adopt a lifecycle, register a command, or authorize execution. After customization and an explicit lifecycle choice, the user can ask the agent to follow `workflows/<chosen-name>/SKILL.md` by filesystem path without registering a command.
+Match the generated workflow's frontmatter `name` to its directory and keep `disable-model-invocation: true`. Copying guidance or generating a workflow does not register a command or authorize execution. The starter's no-lifecycle default is a complete policy choice and may remain in place. The user can ask the agent to follow a finished `workflows/<chosen-name>/SKILL.md` by filesystem path without registering a command.
 
-For optional command registration, add the consuming project's `workflows/` directory to its `skills.customDirectories` array. OMP scans the named workflow directories beneath that root. Never register `Templates/`. Preserve the central `Skills/` root and any unrelated roots the project needs because array overrides replace lower-precedence values:
+For optional command registration, add the consuming project's `workflows/` directory to its `skills.customDirectories` array. OMP scans the named workflow directories beneath that root. Never register `Templates/` or the toolkit's `Starter/`. Preserve the central `Skills/` root and any unrelated roots the project needs because array overrides replace lower-precedence values:
 
 ```yaml
 skills:
