@@ -1,6 +1,6 @@
 # Design decisions
 
-Use this guide to read, write, or revise a lasting design decision. This is support material, not a request to run a full design review. Project guidance chooses the record's repository and path; a workflow may refer to that home but is not required.
+Use this guide to read, write, or revise a lasting design decision. This is support material, not a request to run a full design review. Project guidance chooses the record's repository and path. When it also supplies record selection, format, or maintenance rules, use those project-owned rules instead of the corresponding defaults below. A workflow may refer to that home but is not required.
 
 ## What earns a record
 

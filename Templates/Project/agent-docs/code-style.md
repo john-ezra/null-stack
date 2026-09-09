@@ -5,6 +5,14 @@
 
 *Fill the sections below with language-bound conventions for this repo. Name exceptions to existing tooling or language norms, rather than restating both. Delete the editing instructions and examples when filled. Replace these sections if the stack changes.*
 
+## Code conventions
+
+*Record language-specific code rules that naming and formatting do not cover.*
+
+```
+Example: In TypeScript, do not introduce `any`. Use a concrete type, or use `unknown` and narrow it before accessing its value.
+```
+
 ## Documentation
 
 *Name the reference documentation and which declarations need it. Cover godoc, JSDoc, or docstrings as applicable.*

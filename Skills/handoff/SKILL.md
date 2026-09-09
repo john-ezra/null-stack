@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 Compact this session into a prompt the next agent can run on cold. It is not a status report and not a summary for humans. The reader is an agent with none of your context, and the file is its opening prompt.
 
+Run only on the user's explicit invocation; another procedure may suggest a handoff but cannot invoke it. This task writes only the handoff, not tracker records or state changes. It transfers context without authorizing the successor's next task or any additional writes.
+
 ## 1. Fix the forward purpose
 
 Write the handoff for what the next session will *do*: continue the implementation, debug the failure, review the approach, pick up on another machine. If the user stated the purpose, use it. If not, ask before writing anything; a handoff without a purpose keeps everything and helps nothing.

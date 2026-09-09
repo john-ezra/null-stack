@@ -1,10 +1,12 @@
 ---
 name: pr
-description: Pull request structure. Use when opening a pull request or titling one.
+description: Write pull request titles and bodies, or close out merged work. Use when opening or titling a PR, or recording delivery and closing its linked work after merge.
 disable-model-invocation: false
 ---
 
 Once merged, the PR's title and body are the permanent record of what changed and why. Write both so a reader who has never seen the conversation needs nothing else.
+
+For post-merge close-out, use [After merge](#after-merge) instead of drafting a new PR.
 
 ## Ground
 
@@ -45,3 +47,10 @@ Issue: <the issue this work delivers against, as a plain identifier such as `WEB
 ```
 
 Done when: the grounding step has run, the title passes the apply-test with no prefix, the body follows the template above with every section filled and the issue line present whenever an issue exists, and Verification cites observed output, one line per acceptance criterion where a spec exists.
+
+## After merge
+
+1. Confirm the PR's repository, target branch, merged status, and merge commit on its host. Read any linked requirement, including approved amendments, or establish that none exists; read the shipped diff and verification evidence in either case. An open, approved, or closed-unmerged PR is not delivered work. Do not merge it as part of close-out. Done when actual merge evidence and the requirement or its confirmed absence are identified.
+2. Prepare a close-out note identifying the PR and merge commit. If delivery diverged from the effective spec, say how; keep change-specific rationale in the PR and link lasting design records rather than copying them. Report any unmet criterion. Merge alone cannot turn unmet scope into completion; use `spec` when a scope decision is needed. Done when the note distinguishes shipped work from any unfinished obligation.
+3. Resolve the requested destination and completion policy. A linked issue is not permission to write to its tracker. With permission, publish the note to that issue, then apply only the completion transition authorized by project policy or the request when its conditions are met. Use `linear` for Linear comments and explicit state updates. Without a tracker or write permission, return the note in chat; do not create records to close out a standalone PR. Effort completion and archival remain separate project decisions.
+4. Confirm each authorized write at its destination. If the comment succeeds but the state update fails, report that partial result and the remaining transition; do not claim closure. Done when the user has the merge evidence, the close-out note or its published location, and the actual completion state.
