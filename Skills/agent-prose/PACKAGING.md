@@ -2,17 +2,25 @@ How Null Stack packages skills, workflows, and project templates. When configuri
 
 ## Where a skill lives
 
-A skill is `Skills/<name>/SKILL.md` with its supporting files in the same directory. A shared workflow composes skills and lives at `Workflows/<name>/SKILL.md` with the same frontmatter. A reusable skill owns what its artifact contains; a workflow owns where it goes and how it participates in the process.
+A reusable skill is `Skills/<name>/SKILL.md` with its supporting files in the same directory. A project-owned workflow composes skills and lives at `workflows/<name>/SKILL.md` in that project with the same frontmatter. A reusable skill owns its procedure and artifact semantics, including revision and close-out. Lifecycle policy chooses entry thresholds, destinations, project approval gates and write rules, tracker event mapping, and effort completion; short task workflows select skills and their order, plus task-specific modes or conditions.
 
 Keep a skill usable without adopting a workflow. A standalone invocation uses the user's requested destination or returns its result in the conversation; if persistence is required and no destination is known, resolve that before writing. Do not make a tracker or another workflow an implicit prerequisite.
 
-Project starter files live under `Templates/Project/` and become project-owned copies. Its `AGENTS.md` routes to the copied project guidance without prescribing a lifecycle. `workflows/SKILL.md` there is an optional annotated example, not a registered shared workflow. Adapting it creates a project-owned workflow; copying the starter alone does not adopt it.
+Project starter files live under `Templates/Project/` and become project-owned copies. Its `AGENTS.md` routes to the copied project guidance without adopting a lifecycle. The five guides cover Git, code style, Linear, development, and design decisions. The decision guide includes local record rules and format without requiring a skill package or host-specific resolver; shared skill defaults defer to those project-owned rules.
+
+The starter's [agent-docs/development.md](../../Templates/Project/agent-docs/development.md) is the lifecycle policy's only template home. It is plain Markdown authoring material with no skill frontmatter, containing bounded no-lifecycle and finite-effort blocks. Replace the entire source with one adapted block, removing authoring instructions, outer fences, and unused examples. The retained guide contains project decisions and conditional owner pointers, normally roughly 400-700 words, not copied skill procedures. A project can explicitly adopt policy without task workflows, select no lifecycle, or point to another chosen policy. Keep one policy authority and only a pointer in `AGENTS.md`.
+
+The starter contains no task workflows. The separate [Templates/Workflows/SKILL.md](../../Templates/Workflows/SKILL.md) is a plain Markdown authoring document, not a registered or runnable skill. It contains fenced full `SKILL.md` blocks for a generic template and labeled `fix-bug` and `add-feature` examples. Generate only the chosen workflow at `workflows/<chosen-name>/SKILL.md` in the project, removing authoring instructions, outer fences, and unused blocks. Match its frontmatter name to its directory and keep `disable-model-invocation: true`.
+
+Generated workflows contain only the skill sequence, task-specific modes or conditions, and a project-guide pointer. Their `../../agent-docs/development.md` link resolves from the final project workflow directory, not the authoring source. Keep procedures and artifact contents in the skills, lifecycle policy in the development guide, and setup mechanics in this packaging guidance and the host guide. Use relative filesystem links in generated project files, not host-specific resource URIs.
+
+Copying the starter or authoring a workflow does not adopt a lifecycle, register a command, or authorize execution. After customization and an explicit lifecycle choice, the user can ask an agent to follow a generated workflow by its filesystem path without registration. If the host supports registration, add that project's `workflows/` alongside the central `Skills/` root and preserve unrelated configured roots. Never register `Templates/`; the shared `Workflows/` library root is retired. Read [OH-MY-PI.md](OH-MY-PI.md) for OMP configuration and commands. Existing users must separately authorize any live setup migration. Individual skills remain usable without a workflow or lifecycle.
 
 ## Frontmatter
 
 Four fields are in use across the repo. Add no others.
 
-- **`name`.** Matches the directory name for a registered package. Use a unique lowercase, hyphen-separated name. A template's example name and container directory must be aligned before registration.
+- **`name`.** Matches the directory name for a registered package. Use a unique lowercase, hyphen-separated name. When naming or renaming a generated workflow, set both its directory and frontmatter to that name.
 - **`description`.** One or two sentences, written by the rules below.
 - **`disable-model-invocation`.** Present on every skill, directly after `description`, as an explicit `true` or `false`. It expresses manual or listed mode; it is not an access-control boundary. Workflows remain manual until the user explicitly changes that policy.
 - **`allowed-tools`.** A `Bash(<cmd>:*)` list where needed by the host. Declare only the expected tools; do not treat metadata as authorization or assume the host enforces it.

@@ -31,8 +31,8 @@ Template, verbatim:
 
 Include every section; make a genuinely empty one say so rather than vanish.
 
-Present the draft for correction. Done when the originator has approved it and it reads as their want.
+Present the draft for correction. Done when the originator has approved it and it reads as their want. Approval does not grant file or tracker-write permission. Use the destination authorized by the request or adopted project policy; otherwise return the approved draft in chat. An intent needs no workflow or tracker.
 
 ## Revision
 
-Answering an open question is routine: move it from Open questions to the section it settles, the moment it is answered. Changing the want itself (Goal, Stop criteria, a constraint) is rare and needs a serious cause: new facts, a collapsed assumption. Implementation drift is not one; the intent holds and the work bends. Update the affected sections in place.
+Answering an open question is routine: move it from Open questions to the section it settles, the moment it is answered. Changing the approved want itself (Goal, Stop criteria, a constraint) is rare and needs a serious cause: new facts, a collapsed assumption. Implementation drift is not one; the intent holds and the work bends. Get the originator's approval for the changed want, using an already explicit decision when available. With write permission, update the affected sections in place; otherwise present the revision in chat. Approval of the revision does not authorize downstream spec changes or publication.

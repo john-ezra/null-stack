@@ -25,5 +25,5 @@ Example: Use conventional commits with an imperative subject, 72 characters maxi
 *Give the target branch, scope, required review and checks, merge method, and any release requirements. These conventions describe how authorized publication works; they do not authorize it.*
 
 ```
-Example: Target main. Keep each PR focused on one change and link an existing issue when relevant. Require one approval and passing CI, then squash-merge.
+Example: Target main. Use one issue per PR when work has an issue; otherwise keep the PR focused on one change. Require one approval and passing CI, then squash-merge.
 ```

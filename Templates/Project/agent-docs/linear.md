@@ -1,6 +1,6 @@
 # Linear context
 ---
-This file identifies the project's Linear workspace and team and records project-specific constraints. For Linear commands, read the `linear` skill for CLI mechanics. Artifact formats belong to their owning skills. Placement and state transitions belong to a workflow only if the user adopts one.
+This file identifies the project's Linear workspace and team and records project-specific constraints. For Linear commands, read the `linear` skill for CLI mechanics. Artifact formats belong to their owning skills. For artifact placement and state transitions, read the [development lifecycle](development.md); its policies apply only if adopted.
 
 Before accessing project records, resolve the workspace and team from the bindings below. An authenticated account or CLI default is not evidence that it is the right destination. If a needed binding is missing or ambiguous, ask the user before accessing that destination. Authorization for writes lives in [AGENTS.md](../AGENTS.md), under Rules.
 
@@ -38,7 +38,7 @@ Initiative association: None.
 ```
 Example:
 Permitted destinations: Application team only; do not file this repository's work with the Support team.
-Labels and priorities: Preserve existing labels and priorities unless the request authorizes a change. No required project label.
+Labels and priorities: New issues require one existing type label: Bug, Feature, Improvement, Chore, or Audit. Priority 1 urgent drops everything, 2 high is next up, 3 medium is planned work and the default, and 4 low is nice to have. Preserve existing labels and priorities unless the request authorizes a change. Resolve unavailable labels before creation; do not create them to satisfy this example.
 Ownership: Leave new records unassigned unless the user names an owner.
 Visibility and sensitive content: The workspace includes external contractors. Do not paste customer data or private incident logs.
 Integrations: No automation changes Linear records for this repository.

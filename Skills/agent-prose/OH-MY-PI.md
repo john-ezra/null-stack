@@ -4,7 +4,7 @@ Read this file when configuring Null Stack in Oh My Pi or checking whether OMP w
 
 ## Use the public checkout
 
-Keep one checkout of the public Null Stack repository. In the active OMP agent directory's `config.yml`, add the two library roots to `skills.customDirectories`. The default location is `~/.omp/agent/config.yml`; profiles and `PI_CODING_AGENT_DIR` can change the active agent directory.
+Keep one checkout of the public Null Stack repository. With explicit permission to configure the host, add its `Skills/` root to `skills.customDirectories` in the active OMP agent directory's `config.yml`. The default location is `~/.omp/agent/config.yml`; profiles and `PI_CODING_AGENT_DIR` can change the active agent directory.
 
 ```yaml
 skills:
@@ -12,22 +12,40 @@ skills:
   enableSkillCommands: true
   customDirectories:
     - "/absolute/path/to/null-stack/Skills"
-    - "/absolute/path/to/null-stack/Workflows"
 ```
 
-Replace the example paths with the checkout's absolute paths. Merge these entries into the existing configuration, retaining unrelated settings and skill roots. Array settings replace lower-precedence arrays rather than appending to them, so a project override must include every root that project still needs.
+Replace the example path with the checkout's absolute path. Merge this entry into the existing configuration, retaining unrelated settings and skill roots. Array settings replace lower-precedence arrays rather than appending to them, so a project override must include every root that project still needs.
 
-OMP scans one directory level below each custom root for `SKILL.md`. Register `Skills/` and `Workflows/`, not the repository root or `Templates/`. A custom-directory skill overrides a same-named provider skill; among custom directories, the first occurrence wins. Check duplicate names when switching checkouts so an older copy does not remain selected.
+OMP scans one directory level below each custom root for `SKILL.md`. Register `Skills/`, not the repository root or `Templates/`. A custom-directory skill overrides a same-named provider skill; among custom directories, the first occurrence wins. Check duplicate names when switching checkouts so an older copy does not remain selected.
 
-Check the configured roots with `omp config get skills.customDirectories --json`. Then start a new session and confirm that `/skill:intent` and `/skill:lifecycle` are available commands. To inspect the resolved files without running their procedures, ask that session to read `skill://intent` or `skill://lifecycle` as source material.
+Check the configured roots with `omp config get skills.customDirectories --json`. Then start a new session and confirm that `/skill:intent` is available. To inspect its resolved file without running the procedure, ask that session to read `skill://intent` as source material.
 
-To run the shared lifecycle, the user explicitly invokes `/skill:lifecycle`. Its manual mode keeps it out of the model's offered skill list; it does not make the file unreadable.
+The shared `Workflows/` root is retired. Existing users must separately authorize any live setup migration before replacing obsolete skill paths or removing that root. Preserve unrelated configured roots. Updating this checkout does not change live configuration or install resources.
 
 ## Adopt project guidance separately
 
-Copy and customize the project starter independently of the shared library. Its `AGENTS.md` belongs at the consuming project root. The adjacent `agent-docs/` files are reached by task-specific pointers rather than inlined into every session.
+Copy and customize the project starter independently of the shared library. Its `AGENTS.md` belongs at the consuming project root. The adjacent `agent-docs/` directory has five guides, reached by task-specific pointers rather than inlined into every session. The decision guide keeps record rules and format in the project without requiring an installed skill or resource resolver.
 
-`workflows/SKILL.md` in the starter is an optional example. Copying it does not register or adopt it. After customization, the user can explicitly ask the agent to follow that file without registering a command. To register it, choose a unique lowercase name, make the directory name match its frontmatter, and add that directory's parent to the project's skill roots. Preserve the central library roots when setting a project-level `skills.customDirectories` array. Keep `disable-model-invocation: true`.
+The starter's [agent-docs/development.md](../../Templates/Project/agent-docs/development.md) is the lifecycle policy's only template home. Follow its authoring instructions and replace the entire source with one adapted policy block or its explicit no-lifecycle option; do not retain outer fences or unused examples. It has no skill frontmatter or command. Skills own procedures and artifact semantics; the retained guide owns project policy choices and conditional pointers. A project can adopt policy without a task workflow. Individual skills remain available alone.
+
+The starter contains no task workflows. To author one, use [Templates/Workflows/SKILL.md](../../Templates/Workflows/SKILL.md), a plain Markdown source document containing fenced full `SKILL.md` blocks for a generic template and labeled `fix-bug` and `add-feature` examples. It is not a registered or runnable skill, and those examples are not installed commands. Write the chosen block to `workflows/<chosen-name>/SKILL.md` in the project, removing authoring instructions, outer fences, and unused blocks. Keep only the skill sequence, task-specific modes or conditions, and project-guide pointer in the generated body.
+
+Match the generated workflow's frontmatter `name` to its directory and keep `disable-model-invocation: true`. Copying guidance or generating a workflow does not adopt a lifecycle, register a command, or authorize execution. After customization and an explicit lifecycle choice, the user can ask the agent to follow `workflows/<chosen-name>/SKILL.md` by filesystem path without registering a command.
+
+For optional command registration, add the consuming project's `workflows/` directory to its `skills.customDirectories` array. OMP scans the named workflow directories beneath that root. Never register `Templates/`. Preserve the central `Skills/` root and any unrelated roots the project needs because array overrides replace lower-precedence values:
+
+```yaml
+skills:
+  enabled: true
+  enableSkillCommands: true
+  customDirectories:
+    - "/absolute/path/to/null-stack/Skills"
+    - "/absolute/path/to/project/workflows"
+```
+
+With separate permission to configure the host, replace the paths, merge the roots with existing settings, and check for duplicate names using the precedence rules above. Check `omp config get skills.customDirectories --json` from the consuming project, then start a new session. For example, if you generated a workflow named `review-change` in `workflows/review-change/`, confirm `/skill:review-change` is available and inspect `skill://review-change` as source without executing it. `review-change` is an example name, not a shipped command. The user invokes the generated workflow's command when they want to run it.
+
+The generated workflow's `../../agent-docs/development.md` link must resolve from its final project directory through the filesystem, not through a `skill://` URI. Retain the project guide and keep OMP setup details here rather than in the generated workflow.
 
 Keep existing user instructions when setting up the library. Changing live agent configuration requires explicit authorization.
 
