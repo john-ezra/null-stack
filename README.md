@@ -9,7 +9,10 @@ A collection of agent skills, a copy-ready project starter, and authoring templa
 | [Skills/](Skills/) | Standalone capabilities, with supporting files inside each skill's directory |
 | [Starter/](Starter/) | Opinionated, copy-ready project guidance with concrete defaults and empty sections for project-specific facts |
 | [Templates/Project/AGENTS.md](Templates/Project/AGENTS.md) | Annotated project overview template, with its original instructions, examples, rules, and companion guides |
+| [Templates/Project/agent-docs/code-style.md](Templates/Project/agent-docs/code-style.md) | Authoring template for code conventions, documentation, naming, and formatting |
 | [Templates/Project/agent-docs/development.md](Templates/Project/agent-docs/development.md) | Authoring source for an optional project lifecycle policy |
+| [Templates/Project/agent-docs/git.md](Templates/Project/agent-docs/git.md) | Authoring template for branching, commits, pull requests, and merges |
+| [Templates/Project/agent-docs/linear.md](Templates/Project/agent-docs/linear.md) | Authoring template for Linear bindings and project-specific constraints |
 | [Templates/Workflows/SKILL.md](Templates/Workflows/SKILL.md) | Plain Markdown authoring source with a generic workflow template and labeled `fix-bug` and `add-feature` examples |
 
 A reusable skill owns its task procedure and artifact semantics, including revision and close-out. Project lifecycle policy chooses entry thresholds, artifact destinations, project approval gates and write rules, tracker event mapping, and effort completion. Short task workflows select skills and their order without repeating procedures or policy. Topic guides own Git conventions, Linear bindings and constraints, and lasting design decisions; shared skill defaults defer to project-owned record rules. Copying project guidance does not adopt a lifecycle or execute a workflow.
