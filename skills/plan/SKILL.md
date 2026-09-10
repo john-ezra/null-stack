@@ -4,7 +4,7 @@ description: Implementation planning. Use when converting a spec into an impleme
 disable-model-invocation: false
 ---
 
-Convert a spec into the literal implementation plan: a frozen snapshot of *how*, taken at pickup, after all decisions are made. The spec stays the requirements contract; the plan is the route. Non-goals: writing or re-scoping the spec, and implementing.
+Use this skill when converting a spec into an implementation plan, picking up specced work, deciding whether a spec needs a plan, or reassessing an approach after pickup. The implementation plan is a frozen snapshot of *how*, taken at pickup, after all decisions are made. The spec stays the requirements contract; the plan is the route. Non-goals: writing or re-scoping the spec, and implementing.
 
 For a route change after pickup, use [After pickup](#after-pickup). Plan placement comes from the user's request or adopted project policy, not from a workflow requirement. Without a destination or write permission, deliver the plan in chat. Planning does not authorize implementation or tracker changes.
 

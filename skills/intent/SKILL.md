@@ -4,7 +4,7 @@ description: Write an intent document. Use when the user wants an idea, want, or
 disable-model-invocation: false
 ---
 
-Write the intent: what is wanted, why, and under which constraints, in the originator's own words. Use what the conversation has already produced. Add nothing of your own: no solutions, no design, no restructuring of the want. Where the conversation has not settled something, say so under Open questions rather than filling the gap.
+Use this skill when the user wants an idea, want, or problem captured as an intent, asks for an INTENT.md, or needs an existing intent updated. Write what is wanted, why, and under which constraints, in the originator's own words. Use what the conversation has already produced. Add nothing of your own: no solutions, no design, no restructuring of the want. Where the conversation has not settled something, say so under Open questions rather than filling the gap.
 
 Goal is the one section that cannot be open: without a stated want there is nothing to write, so ask for it before drafting. Every other section may be open at creation. Write what the conversation holds and stop; a thin intent is a valid intent, and its open questions are filled later, not by interview here.
 

@@ -6,6 +6,8 @@ disable-model-invocation: false
 
 # A Philosophy of Software Design
 
+Use this skill when designing or reshaping code structure, interfaces, seams, or adapters; making code testable or AI-navigable; reviewing design complexity; or reading, writing, or revising lasting design decisions. It also applies when the user asks about Ousterhout's design philosophy or deep modules. Design quality is the remit, not bug hunting.
+
 Everything here serves one goal: **reduce complexity**. That goal outranks every individual rule below, every move carries its limit, and the tiebreaker is always total system complexity: best information hiding, fewest dependencies, deepest interfaces.
 
 ## The complexity model

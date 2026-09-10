@@ -1,10 +1,10 @@
 ---
 name: shape
-description: Shape a nebulous idea into a concrete one through a collaborative interview. Use when the user wants to shape or brainstorm an idea, want, design, or document that is not yet clear.
+description: Explore an unclear idea through a collaborative interview. Use when the user wants to discuss, brainstorm, or shape an idea, want, design, or document whose decisions are not settled.
 disable-model-invocation: false
 ---
 
-Collaborative interview that turns fog into a clear picture.
+Use this skill when the user wants to shape or brainstorm an idea, want, design, or document that is not yet clear. Work through it in a collaborative interview.
 
 ## The tree
 

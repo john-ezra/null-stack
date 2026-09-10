@@ -5,7 +5,7 @@ disable-model-invocation: false
 allowed-tools: Bash(linear:*), Bash(curl:*)
 ---
 
-How to drive the `linear` CLI. Artifact semantics belong to their owning skills; project policy or the user's request chooses destinations and state transitions. This skill executes authorized writes, not lifecycle decisions. For changed spec dependencies, get the approved blocking order from `spec`; for post-merge evidence and close-out content, use `pr`.
+Use this skill for any `linear` command, publishing or replacing Linear bodies, reconciling issue relations, or applying authorized tracker transitions, including the GraphQL fallback when no flag covers an operation. Artifact semantics belong to their owning skills; project policy or the user's request chooses destinations and state transitions. This skill executes authorized writes, not lifecycle decisions. For changed spec dependencies, get the approved blocking order from `spec`; for post-merge evidence and close-out content, use `pr`.
 
 ## The repo pin
 

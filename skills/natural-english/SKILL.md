@@ -4,7 +4,7 @@ description: Strip machine-writing tells from prose and give it a human voice. U
 disable-model-invocation: false
 ---
 
-Prose bound for a document or file, or handed over to be polished, gets two edits before it goes out. Strip what marks it as machine-written, then give it a human voice. Removing tells alone does not satisfy this skill. Docs, summaries, reports, and generated files with prose in them count; an ordinary chat reply does not, unless the user asks for the treatment.
+Use this skill when writing or revising prose for a document or file, or when asked to polish, humanize, or rewrite text. Give it two edits before it goes out. Strip what marks it as machine-written, then give it a human voice. Removing tells alone does not satisfy this skill. Docs, summaries, reports, and generated files with prose in them count; an ordinary chat reply does not, unless the user asks for the treatment.
 
 ## Process
 

@@ -4,6 +4,8 @@ description: Pick, write, review, and prune tests so the suite guards what calle
 disable-model-invocation: false
 ---
 
+Use this skill when asked whether something needs a test, to write or review tests, add a regression test for a bug, judge a suite, or work test-first.
+
 Each test names the promise it guards and the one mistake it would catch, and stays green through any internal rewrite that keeps that promise. Where a production seam, port, or adapter belongs is `software-design`'s decision, never a side effect of wanting a test.
 
 ## Mode

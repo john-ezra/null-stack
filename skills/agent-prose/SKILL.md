@@ -4,7 +4,7 @@ description: "Write or audit agent-facing instructions: skills, context files li
 disable-model-invocation: false
 ---
 
-Write or audit documents that direct an agent, so that every run follows the same decision procedure; outputs may still differ.
+Use this skill when creating or revising agent-facing instructions, reviewing a named instruction document, or recording the user's standing conventions. Write or audit documents that direct an agent, so that every run follows the same decision procedure; outputs may still differ. End-user prose, code design, and carrying out another skill's procedure belong elsewhere.
 
 ## Classify the request
 
