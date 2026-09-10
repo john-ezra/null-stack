@@ -1,6 +1,6 @@
 ---
 name: intent
-description: Write an intent document. Use when the user wants an idea, want, or problem captured as an intent, asks for an intent.md, or needs an existing intent updated.
+description: Write an intent document. Use when the user wants an idea, want, or problem captured as an intent, asks for an INTENT.md, or needs an existing intent updated.
 disable-model-invocation: false
 ---
 

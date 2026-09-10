@@ -41,7 +41,7 @@ linear issue query --team WEB --label Bug --updated-after 2026-01-01
 Create an issue, one label and a priority, into a project:
 
 ```bash
-linear issue create --title "<imperative title>" --description-file ./spec.md \
+linear issue create --title "<imperative title>" --description-file ./SPEC.md \
   --project "<project>" --label Feature --priority 3 --state Todo --no-interactive
 ```
 
@@ -49,7 +49,7 @@ Move state, comment, wire a blocking edge:
 
 ```bash
 linear issue update WEB-12 --state "In Progress"
-linear issue comment add WEB-12 --body-file ./comment.md
+linear issue comment add WEB-12 --body-file ./COMMENT.md
 linear issue relation add WEB-14 blocked-by WEB-12
 linear issue relation list WEB-14
 ```
@@ -58,15 +58,15 @@ Create a project under an initiative with an overview:
 
 ```bash
 linear project create --name "<name>" --team WEB --initiative "<initiative>" \
-  --description "<one sentence, 255 chars max>" --content-file ./overview.md --status planned
+  --description "<one sentence, 255 chars max>" --content-file ./OVERVIEW.md --status planned
 linear project update <project> --status started
 ```
 
 Attach a document to an issue or project:
 
 ```bash
-linear document create --issue WEB-12 --title Plan --content-file ./plan.md
-linear document update <document> --content-file ./plan.md
+linear document create --issue WEB-12 --title Plan --content-file ./PLAN.md
+linear document update <document> --content-file ./PLAN.md
 ```
 
 Inline image in a comment:
@@ -109,7 +109,7 @@ Use this path when authorized changes split, merge, replace, cancel, or otherwis
 
 ## Reference
 
-`linear <command> --help` lists a command's subcommands and `linear <command> <subcommand> --help` its flags; both are the installed version's own text, so nothing here repeats them. The commands are `api`, `auth`, `config`, `cycle`, `document`, `initiative`, `initiative-update`, `issue`, `label`, `milestone`, `project`, `project-update`, `schema`, `team`, and `user`. Curated examples for initiatives, labels, projects, and bulk operations are in [references/organization-features.md](references/organization-features.md).
+`linear <command> --help` lists a command's subcommands and `linear <command> <subcommand> --help` its flags; both are the installed version's own text, so nothing here repeats them. The commands are `api`, `auth`, `config`, `cycle`, `document`, `initiative`, `initiative-update`, `issue`, `label`, `milestone`, `project`, `project-update`, `schema`, `team`, and `user`. Curated examples for initiatives, labels, projects, and bulk operations are in [references/ORGANIZATION-FEATURES.md](references/ORGANIZATION-FEATURES.md).
 
 ## GraphQL fallback
 
@@ -125,7 +125,7 @@ A query with non-null markers (`String!`) goes through a heredoc; inline quoting
 ```bash
 linear api '{ viewer { id name } }'
 
-linear api --variable id=<project-id> --variable content="$(cat ./overview.md)" <<'GRAPHQL'
+linear api --variable id=<project-id> --variable content="$(cat ./OVERVIEW.md)" <<'GRAPHQL'
 mutation($id: String!, $content: String!) {
   projectUpdate(id: $id, input: { content: $content }) { success }
 }

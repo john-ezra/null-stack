@@ -8,4 +8,4 @@ Follow [project write restrictions](../AGENTS.md#rules) for any record changes. 
 
 Preserve existing labels, priority, ownership, and state unless the request authorizes their change. Do not infer an assignee from the authenticated account. Confirm the destination's visibility before sending sensitive material; keep credentials and private material out of destinations not authorized to receive them.
 
-For artifact placement and completion policy, read [development policy](development.md). A Linear request does not adopt a lifecycle or authorize integration setup.
+For artifact placement and completion policy, read [development policy](DEVELOPMENT.md). A Linear request does not adopt a lifecycle or authorize integration setup.

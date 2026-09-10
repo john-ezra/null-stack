@@ -1,6 +1,6 @@
 # Project guidance
 
-When customizing this file, read the [AGENTS.md template](https://github.com/john-ezra/null-stack/blob/main/Templates/Project/AGENTS.md), source `Templates/Project/AGENTS.md` in the Null Stack checkout. Its annotations and examples explain what belongs in each section. Unfilled sections mean the information is not recorded here, not that setup must finish before work can begin. Use repository evidence when the task needs those facts.
+When customizing this file, read the [AGENTS.md template](https://github.com/john-ezra/null-stack/blob/main/templates/project/AGENTS.md), source `templates/project/AGENTS.md` in the Null Stack checkout. Its annotations and examples explain what belongs in each section. Unfilled sections mean the information is not recorded here, not that setup must finish before work can begin. Use repository evidence when the task needs those facts.
 
 ## Project name and purpose
 
@@ -22,10 +22,10 @@ One home per kind of information; a fact lives in its home, everywhere else poin
 
 | Read | When |
 | --- | --- |
-| [Development policy](agent-docs/development.md) | Before scoping, planning, implementing, reviewing, publishing, or closing out project work |
-| [Git conventions](agent-docs/git.md) | Before any Git operation or PR work |
-| [Code style](agent-docs/code-style.md) | Before the first code or documentation edit in a session |
-| [Linear context](agent-docs/linear.md) | Before reading or writing Linear records for this project |
+| [Development policy](agent-docs/DEVELOPMENT.md) | Before scoping, planning, implementing, reviewing, publishing, or closing out project work |
+| [Git conventions](agent-docs/GIT.md) | Before any Git operation or PR work |
+| [Code style](agent-docs/CODE-STYLE.md) | Before the first code or documentation edit in a session |
+| [Linear context](agent-docs/LINEAR.md) | Before reading or writing Linear records for this project |
 | [Design decisions](agent-docs/design-decisions/README.md) | Before designing, changing, or reviewing an area, or creating or revising a design-decision record |
 
 ## Rules
