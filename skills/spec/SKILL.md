@@ -4,7 +4,7 @@ description: Write specs from an intent or an approved standalone report or requ
 disable-model-invocation: false
 ---
 
-Write thin, session-sized **specs** from an intent or an approved standalone source: what each slice delivers plus its acceptance criteria, nothing more. How a slice gets built is not decided here.
+Use this skill when an intent is ready to slice or re-slice, an approved standalone report or requirement needs a spec, existing specs need splitting, merging, re-scoping, or killing before pickup, or picked-up requirements need a scope decision. Write thin, session-sized **specs** from that source: what each slice delivers plus its acceptance criteria, nothing more. How a slice gets built is not decided here.
 
 For a spec already picked up, use [After pickup](#after-pickup) instead of re-slicing its approved contract in place.
 

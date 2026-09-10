@@ -4,7 +4,7 @@ description: Find a bug's cause by experiment before fixing it, including failed
 disable-model-invocation: false
 ---
 
-Run a failure down to a stated cause with the evidence that selected it. Use observations and experiments against a running reproduction, each with its prediction written before it runs.
+Use this skill when asked to debug, diagnose, or repair a bug, including failed fixes, flaky failures, regressions, unexplained slowdowns, and project-code panics, stack traces, or exceptions within the scope below. Run the failure down to a stated cause with the evidence that selected it. Use observations and experiments against a running reproduction, each with its prediction written before it runs.
 
 ## Scope
 
@@ -20,7 +20,7 @@ The request decides the mode. A request to explain why a failure happens or to d
 
 A report that pins both the faulting location and the mechanism, a stack trace into a line whose defect you can name on sight, takes the direct path: build the loop in step 2 and skip steps 3 to 5. On that path the loop is the bare case, its first red run is the saved symptom, and the report's trace is the observation that selected the cause; record it as an inspection probe. The loop must fail at the named line by the stated mechanism, or the case goes to step 3. Once that evidence establishes the cause, diagnosis-only work goes to step 7 with a recommended repair; repair work goes to step 6. Anything less, including a failure with several plausible causes, gets the full procedure.
 
-Read the project's glossary, local context document, and ADRs for the affected area, so candidates use its terms and do not reopen settled decisions. For unfamiliar code, dispatch read-only `scout` subagents in one batch to map the implicated path, its callers, and its tests.
+Read the project's glossary, local context document, and ADRs for the affected area, so candidates use its terms and do not reopen settled decisions. For unfamiliar code, dispatch read-only research delegates together to map the implicated path, its callers, and its tests. If that delegation is unavailable, report the limitation rather than treating the required mapping as complete.
 
 Done when the mode is diagnosis-only or repair, the case is labeled direct path or investigation, and for an investigation the implicated path and its entry points are mapped.
 

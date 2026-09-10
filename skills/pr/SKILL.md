@@ -4,7 +4,7 @@ description: Write pull request titles and bodies, or close out merged work. Use
 disable-model-invocation: false
 ---
 
-Once merged, the PR's title and body are the permanent record of what changed and why. Write both so a reader who has never seen the conversation needs nothing else.
+Use this skill when opening or titling a pull request, writing its body, or recording delivery and closing linked work after merge. Once merged, the PR's title and body are the permanent record of what changed and why. Write both so a reader who has never seen the conversation needs nothing else.
 
 For post-merge close-out, use [After merge](#after-merge) instead of drafting a new PR.
 

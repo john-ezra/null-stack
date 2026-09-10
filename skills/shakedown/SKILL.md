@@ -4,7 +4,7 @@ description: Stress-test an idea, plan, design, or document. Use when the user a
 disable-model-invocation: false
 ---
 
-Skeptical interview over whatever the user puts forward: an idea, a plan, a design, a document. Press on it until what breaks has been fixed and what holds is known to hold. The user defends or amends; press or accept.
+Use this skill when the user asks to stress-test, harden, poke holes in, or find what breaks an idea, plan, design, or document. Conduct a skeptical interview until what breaks has been fixed and what holds is known to hold. The user defends or amends; press or accept.
 
 ## The tree
 

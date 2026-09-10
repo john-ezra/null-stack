@@ -4,7 +4,7 @@ description: Reconstruct the historical reasons behind a code decision from comm
 disable-model-invocation: false
 ---
 
-Recover the reasons behind a past decision from the records that hold them, and report what the record establishes and at what confidence, never a tidy motive it does not support. Non-goals: what the code does now, which is `how`, and whether the old decision is still right.
+Use this skill when the user asks why a code decision exists, was chosen, was limited, or was rejected, or wants a value traced to its origin. Recover the reasons from the records that hold them, and report what the record establishes and at what confidence, never a tidy motive it does not support. Non-goals: what the code does now, which is `how`, and whether the old decision is still right.
 
 The run is read-only: no commits, review comments, ticket or document edits, messages, or dashboard changes. Every conclusion is phrased in the tiers of [CONFIDENCE.md](resources/CONFIDENCE.md); read it before collecting evidence and again in synthesis.
 
@@ -21,7 +21,7 @@ Today's code is a pointer into the record, not a witness: its shape and behavior
 
 ## 2. Map the evidence
 
-Before dispatching anyone, check what this environment reaches: connected MCP tools and CLIs (`gh`, the `linear-cli` skill), the repo's own pointers (`docs/`, ADR directories, runbooks, links in the README and in the anchor's tickets), and credentials. Then write the coverage map, one row per category, exactly seven:
+Before dispatching anyone, check what this environment reaches: available tools and command-line clients, including `gh` and `linear` (read the `linear-cli` skill for mechanics), any connected services such as MCP integrations, the repo's own pointers (`docs/`, ADR directories, runbooks, links in the README and in the anchor's tickets), and credentials. Then write the coverage map, one row per category, exactly seven:
 
 | Category | Holds |
 |---|---|
@@ -39,15 +39,15 @@ Each row is **Available** with the tool that reaches it, **Unavailable** naming 
 
 **Shortcut.** When one complete PR or design record answers a narrow question explicitly and in full, read it whole, comments included, and stop. Available rows not pursued keep their status, annotated "not pursued, answered by <record>".
 
-**Parallel scouts.** Otherwise, when any Available row lies outside the repository, every Available category gets one read-only `scout`, all launched in one batch; the map's Irrelevant verdict is the only relevance judgement. Each brief carries:
+**Parallel research.** Otherwise, when any Available row lies outside the repository, every Available category gets one read-only research delegate, all launched together; the map's Irrelevant verdict is the only relevance judgement. If that delegation is unavailable, report the limitation and leave the investigation incomplete rather than silently dropping categories or doing their work serially. Each brief carries:
 
 - The user's question, word for word.
 - The anchor and every known identifier: paths, symbols, shas, PR numbers, ticket ids.
 - Exactly one category and the tool that reaches it.
 - The rules. Open wide in the assigned source, narrow to the hits that bear on the anchor, and read each whole with its comments and same-category links. Quote exact wording only where it states a reason. Log every query and record opened, yield or not. Keep stated rationale apart from circumstantial observation; note conflicts and credible alternate readings; report failed searches and material that should exist but could not be reached. Return references into other categories as leads, uninvestigated.
-- The report shape: source, search log, explicit findings, indirect findings, conflicts, gaps, leads, each with a citation a reader could follow. Raw retrievals stay with the scout.
+- The report shape: source, search log, explicit findings, indirect findings, conflicts, gaps, leads, each with a citation a reader could follow. Raw retrievals stay with the delegate.
 
-When repository history is the only available category, do its work yourself under the same rules; the anchor holds the lineage, so what remains is the review threads. A lead into another category goes to that category's scout, or is reported as a gap when the category is unavailable. Done when every scout has returned evidence, negative searches, gaps, conflicts, and leads, and no category was investigated twice.
+When repository history is the only available category, do its work yourself under the same rules; the anchor holds the lineage, so what remains is the review threads. A lead into another category goes to that category's delegate, or is reported as a gap when the category is unavailable. Done when every delegate has returned evidence, negative searches, gaps, conflicts, and leads, and no category was investigated twice.
 
 ## 4. Synthesize
 

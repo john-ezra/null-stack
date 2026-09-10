@@ -33,6 +33,6 @@ Completion test: an agent that has never seen this conversation could resume fro
 
 The successor reads this file verbatim. Before writing it, strip secrets, API keys, tokens, connection strings, credentials in URLs, and PII. Replace with a placeholder naming where the real value lives (`$STRIPE_KEY`, lives in `.env`). Verbatim error output is the most common leak; scan it.
 
-## 4. Deliver the path
+## 4. Deliver the handoff
 
-Write the handoff into the directory the project's context files name for handoffs; when none is named, ask where before writing. File name `YYYY-MM-DD-<SLUG>.md`, uppercase, hyphen-separated slug from the work (`2026-09-01-AUTH-TOKEN-REFRESH.md`). The path is the deliverable; the user hands it to the next session. End your reply with the full absolute path, prominent and on its own line.
+When the user requests the handoff in chat, return the complete prompt there without writing a file or asking for a directory. Otherwise, write it into the directory the project's context files name for handoffs; when none is named, ask where before writing. File name `YYYY-MM-DD-<SLUG>.md`, uppercase, hyphen-separated slug from the work (`2026-09-01-AUTH-TOKEN-REFRESH.md`). For file delivery, end your reply with the full absolute path, prominent and on its own line.

@@ -14,10 +14,12 @@ Use the fields supported by the target format and harness, following the project
 
 State the intended invocation policy separately from how the host implements it. Metadata may affect discovery, automatic selection, explicit invocation, or tool availability differently. Treat a visibility or invocation setting as access control only when the host documents an enforcement guarantee. Tool metadata describes or constrains capability; it does not grant permission to act.
 
+For a skill intended to work across harnesses, state its selection conditions or user-only invocation boundary in body prose as well as metadata. Describe agent actions by their purpose and required capabilities rather than a host's tool calls or registered agent names. Keep concrete task commands. A missing required capability is a limitation to report, not a step to silently skip.
+
 ## How a skill is reached
 
 - **Listed skill.** Make its description a model-facing trigger wherever the host exposes it for automatic selection. Check how the body loads rather than assuming selection and loading are the same operation.
-- **Manual skill.** The user chooses when to invoke it. Other instructions may suggest it to the user, not dispatch it. Reading its source or supporting resources does not authorize execution.
+- **Manual skill.** The user chooses when to invoke it through an entrypoint the host supports. A host may require its native user command rather than a natural-language request to the agent; check that behavior without embedding host syntax in a portable procedure. Other instructions may suggest the skill to the user, not dispatch it or bypass the host's gate. Reading its source or supporting resources does not authorize execution.
 - **Supporting files.** Use relative Markdown links with explicit read conditions. For shared support in another package, identify the owning skill and link to the resource by its relative filesystem path. Check resolution from the file that contains the link.
 - **Context files.** Keep the project overview and task-specific pointers in the project's context file. Use a conditional pointer for material that only some tasks need. If the host eagerly expands an import, wording that asks for a later read cannot defer that expansion; consult its documentation when import behavior affects placement.
 
@@ -49,7 +51,7 @@ Support that several skills use lives in one plain file, inside the skill that o
 
 ## Menu skill
 
-A manual skill whose body is a list: each entry names a manual skill and gives the condition a person would recognize as the moment to run it. Use the host's documented explicit invocation form when one exists. The person invokes the entry; the body never tells the agent to.
+A manual skill whose body is a list: each entry names a manual skill and gives the condition a person would recognize as the moment to run it. For portable menus, name the skill and condition in ordinary prose, with a relative Markdown link when there is a stable filesystem destination. The person invokes the entry; the body never tells the agent to. A host-specific menu may use that host's documented explicit invocation form.
 
 ## Bar
 
