@@ -1,13 +1,13 @@
 # Null Stack
 
-A collection of agent skills, a copy-ready project starter, and authoring templates. Use a skill on its own, adopt the starter's defaults, or assemble project guidance and workflows to suit your work.
+A collection of agent skills, the copy-ready Project Starter, and authoring templates. Use a skill on its own, adopt the starter's defaults, or assemble project guidance and workflows to suit your work.
 
 ## What lives here
 
 | Location | Purpose |
 | --- | --- |
 | [Skills/](Skills/) | Standalone capabilities, with supporting files inside each skill's directory |
-| [Starter/](Starter/) | Opinionated, copy-ready project guidance with concrete defaults and empty sections for project-specific facts |
+| [Project Starter/](Project%20Starter/) | Opinionated, copy-ready project guidance with concrete defaults and empty sections for project-specific facts |
 | [Templates/Project/AGENTS.md](Templates/Project/AGENTS.md) | Annotated project overview template, with its original instructions, examples, rules, and companion guides |
 | [Templates/Project/agent-docs/code-style.md](Templates/Project/agent-docs/code-style.md) | Authoring template for code conventions, documentation, naming, and formatting |
 | [Templates/Project/agent-docs/development.md](Templates/Project/agent-docs/development.md) | Authoring source for an optional project lifecycle policy |
@@ -40,7 +40,7 @@ For example, [software-design/DEEPENING.md](Skills/software-design/DEEPENING.md)
 
 ## Start a project
 
-Copy the contents of [Starter/](Starter/) into the destination project without overwriting existing guidance. Include the entire `agent-docs/` directory, including `design-decisions/`. Preserve the toolkit's [license notice](#license) without replacing the destination project's license. For an existing project, reconcile its current instructions before adopting the starter.
+Copy the contents of [Project Starter/](Project%20Starter/) into the destination project without overwriting existing guidance. Include the entire `agent-docs/` directory, including `design-decisions/`. Preserve the toolkit's [license notice](#license) without replacing the destination project's license. For an existing project, reconcile its current instructions before adopting the starter.
 
 ```text
 project/
@@ -64,7 +64,7 @@ To adopt a lifecycle, use [the lifecycle authoring template](Templates/Project/a
 
 Use [Templates/Project/AGENTS.md](Templates/Project/AGENTS.md) for the annotated template. It includes the original section instructions, filled examples, document pointers, rules, and "How to use this template" section. Copy it with its adjacent `agent-docs/` directory, then follow those instructions to adapt the overview and companion guides.
 
-The template is authoring material; `Starter/` is the opinionated, ready-to-use alternative. Keep authoring notes and unused examples out of the finished project. Neither adopted form depends on this toolkit during ordinary work.
+The template is authoring material; `Project Starter/` is the opinionated, ready-to-use alternative. Keep authoring notes and unused examples out of the finished project. Neither adopted form depends on this toolkit during ordinary work.
 
 ### Author a project workflow
 
@@ -72,7 +72,7 @@ The starter contains no workflow files. When a project needs one, use [Templates
 
 Write the chosen block to `workflows/<chosen-name>/SKILL.md` in the project. Customize its skill sequence and task-specific modes or conditions, match its frontmatter `name` to the directory, and keep `disable-model-invocation: true`. Remove authoring instructions, outer fences, and unused blocks. Keep procedures in the skills and policy in the project guide. The workflow's `../../agent-docs/development.md` pointer resolves from its final project directory; retain that guide even when no lifecycle is selected.
 
-The user can ask an agent to follow the generated workflow by filesystem path without registering a command. For optional host registration, follow [Oh My Pi setup and reachability](Skills/agent-prose/OH-MY-PI.md). Preserve unrelated configured roots and never register `Templates/` or the toolkit's `Starter/`. Changing live configuration requires separate explicit permission.
+The user can ask an agent to follow the generated workflow by filesystem path without registering a command. For optional host registration, follow [Oh My Pi setup and reachability](Skills/agent-prose/OH-MY-PI.md). Preserve unrelated configured roots and never register `Templates/` or the toolkit's `Project Starter/`. Changing live configuration requires separate explicit permission.
 
 Copied guides and generated workflows are project-owned. Updating Null Stack does not overwrite them. Reading them does not authorize execution or publication, and individual skills remain usable on their own.
 
