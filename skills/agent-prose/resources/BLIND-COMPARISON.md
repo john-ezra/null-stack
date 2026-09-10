@@ -14,7 +14,7 @@ Give each candidate its own worktree or temporary project holding exactly one va
 
 ## 4. Run the candidates
 
-Dispatch one isolated subagent per candidate, all in one batch, with the same agent configuration for every run unless configuration is the question. The prompt is the task and ordinary project context; never ask a candidate to narrate compliance. When each finishes, keep its artifact, its verification evidence, and its execution history (`history://<id>`), or record that a history is unavailable. Done when every run has its artifact captured and its history captured or its absence noted.
+Dispatch one isolated subagent per candidate, all in one batch, with the same agent configuration for every run unless configuration is the question. The prompt is the task and ordinary project context; never ask a candidate to narrate compliance. When each finishes, keep its artifact, its verification evidence, and its execution history, or record that a history is unavailable. Done when every run has its artifact captured and its history captured or its absence noted.
 
 ## 5. Judge blind
 

@@ -1,5 +1,5 @@
 ---
-name: linear
+name: linear-cli
 description: "Linear CLI mechanics. Use for any `linear` command, publishing or replacing Linear bodies, reconciling issue relations, or applying authorized tracker transitions; includes the GraphQL fallback when no flag covers an operation."
 disable-model-invocation: false
 allowed-tools: Bash(linear:*), Bash(curl:*)
@@ -109,7 +109,7 @@ Use this path when authorized changes split, merge, replace, cancel, or otherwis
 
 ## Reference
 
-`linear <command> --help` lists a command's subcommands and `linear <command> <subcommand> --help` its flags; both are the installed version's own text, so nothing here repeats them. The commands are `api`, `auth`, `config`, `cycle`, `document`, `initiative`, `initiative-update`, `issue`, `label`, `milestone`, `project`, `project-update`, `schema`, `team`, and `user`. Curated examples for initiatives, labels, projects, and bulk operations are in [references/ORGANIZATION-FEATURES.md](references/ORGANIZATION-FEATURES.md).
+`linear <command> --help` lists a command's subcommands and `linear <command> <subcommand> --help` its flags; both are the installed version's own text, so nothing here repeats them. The commands are `api`, `auth`, `config`, `cycle`, `document`, `initiative`, `initiative-update`, `issue`, `label`, `milestone`, `project`, `project-update`, `schema`, `team`, and `user`. Curated examples for initiatives, labels, projects, and bulk operations are in [resources/ORGANIZATION-FEATURES.md](resources/ORGANIZATION-FEATURES.md).
 
 ## GraphQL fallback
 

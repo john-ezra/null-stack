@@ -6,7 +6,7 @@ disable-model-invocation: false
 
 Recover the reasons behind a past decision from the records that hold them, and report what the record establishes and at what confidence, never a tidy motive it does not support. Non-goals: what the code does now, which is `how`, and whether the old decision is still right.
 
-The run is read-only: no commits, review comments, ticket or document edits, messages, or dashboard changes. Every conclusion is phrased in the tiers of [CONFIDENCE.md](CONFIDENCE.md); read it before collecting evidence and again in synthesis.
+The run is read-only: no commits, review comments, ticket or document edits, messages, or dashboard changes. Every conclusion is phrased in the tiers of [CONFIDENCE.md](resources/CONFIDENCE.md); read it before collecting evidence and again in synthesis.
 
 ## 1. Anchor the decision
 
@@ -21,7 +21,7 @@ Today's code is a pointer into the record, not a witness: its shape and behavior
 
 ## 2. Map the evidence
 
-Before dispatching anyone, check what this environment reaches: connected MCP tools and CLIs (`gh`, the `linear` skill), the repo's own pointers (`docs/`, ADR directories, runbooks, links in the README and in the anchor's tickets), and credentials. Then write the coverage map, one row per category, exactly seven:
+Before dispatching anyone, check what this environment reaches: connected MCP tools and CLIs (`gh`, the `linear-cli` skill), the repo's own pointers (`docs/`, ADR directories, runbooks, links in the README and in the anchor's tickets), and credentials. Then write the coverage map, one row per category, exactly seven:
 
 | Category | Holds |
 |---|---|
@@ -51,7 +51,7 @@ When repository history is the only available category, do its work yourself und
 
 ## 4. Synthesize
 
-With [CONFIDENCE.md](CONFIDENCE.md) open, tier every claim about motivation, run its delivery check on each, and report contradictions and shifts as it directs. Done when every conclusion carries a tier and a citation or sits in Open accounts or Unknowns, every contradiction is visible, and every gap is named.
+With [CONFIDENCE.md](resources/CONFIDENCE.md) open, tier every claim about motivation, run its delivery check on each, and report contradictions and shifts as it directs. Done when every conclusion carries a tier and a citation or sits in Open accounts or Unknowns, every contradiction is visible, and every gap is named.
 
 ## 5. Report
 

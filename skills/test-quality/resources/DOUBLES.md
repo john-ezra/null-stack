@@ -6,7 +6,7 @@ Take the highest rung that stays controlled and deterministic; moving down a run
 
 1. **Real in-process code.** Owned collaborators with no I/O run as they are. Pure computation, value objects, parsers, pricing rules, and the subject's own helpers are never doubled.
 2. **Local or framework facility.** A temporary directory for a filesystem, an embedded or disposable database, a clock the test sets, an in-process HTTP transport, the framework's test application host.
-3. **In-memory implementation behind an existing port.** Only when the system already owns the port, so substitute and production adapter satisfy the same interface. A port introduced so a test can inject something is a design change and goes through `software-design` and its DEEPENING.md before any test uses it; where the verdict allows injection at an internal seam, results are still observed only through the module's external interface.
+3. **In-memory implementation behind an existing port.** Only when the system already owns the port, so substitute and production adapter satisfy the same interface. A port introduced so a test can inject something is a design change and goes through `software-design` and its [DEEPENING.md](../../software-design/resources/DEEPENING.md) before any test uses it; where the verdict allows injection at an internal seam, results are still observed only through the module's external interface.
 4. **Stand-in for a genuine external system.** A vendor API, mail relay, payment processor, or mapping provider, and only when the real one cannot be reached from the test, answers differently run to run, would cause harm, bills per call, or would slow the test past usefulness.
 
 ## What a double may do
