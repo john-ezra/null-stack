@@ -3,14 +3,14 @@ The domain model behind `agent-prose`. Read the entry for each term a decision t
 ## Reachability
 
 - **Repeatable process.** The quality every rule here serves: two runs of the same instructions walk the same decision procedure even when their correct outputs differ. It is not output uniformity; a document that sends deliberately divergent work through one procedure is well written. Reliability and cost are effects of it, not the target.
-- **Listed skill.** A skill whose description sits in the model's skill list on every turn. The model can pick it from a request, another skill can route to it by name, and a person can still run it by hand. It pays a standing cost for that reach.
-- **Manual skill.** A skill with `disable-model-invocation: true`. Its description is not in the model's list, so it is not offered for automatic selection and pays no standing cost. Invocation is the user's decision; another document may suggest it to the person, not dispatch it. Resource access is separate, as [PACKAGING.md](PACKAGING.md) specifies.
-- **Description.** The `description` frontmatter line. For a listed skill it is the text the model matches a request against, which makes it the top-level pointer to the skill's body rather than a summary for people. For a manual skill only people read it.
+- **Listed skill.** A skill made available for model selection through a description. The model can select it from a request, another skill can route to it, and a person may still invoke it explicitly. The host decides where and when that description is exposed.
+- **Manual skill.** A skill whose invocation is the user's decision. Another document may suggest it to the person, not dispatch it. This policy does not imply that its description is hidden or its files are inaccessible; [SKILL-AUTHORING.md](SKILL-AUTHORING.md) separates policy from host implementation.
+- **Description.** The metadata text that identifies a skill's job. For a listed skill it is the model-facing trigger wherever the host exposes it, so it points to the body rather than merely summarizing it. For a manual skill, it helps a person choose when to invoke it; the host decides who sees it.
 - **Pointer.** Loaded text that names material outside the context and says when to open it. Its wording decides whether the material is ever reached, which is what separates it from a bare link. A link with no condition is a pointer that fires on nothing.
-- **Standing cost.** The tokens and attention that always-present text consumes on every turn of every session, whether or not it is used. Listed descriptions and context files pay it. Recall burden is the other side of the same trade.
+- **Standing cost.** The tokens and attention that always-present text consumes whether or not it is used. A description or context file pays this cost wherever the host keeps it in context. Recall burden is the other side of the same trade.
 - **Recall burden.** What a person must remember about which manual skills exist and when each applies. Paid by the person, not the model.
 - **Menu skill.** A manual skill whose only content lists other manual skills and the moment a person would want each. It lowers recall burden but cannot run what it lists; the person still invokes them, so it is not a dispatcher.
-- **Granularity.** How finely behavior is split across skills. Each extra listed skill adds standing cost; each extra manual skill adds recall burden.
+- **Granularity.** How finely behavior is split across skills. Each extra description kept in context adds standing cost; each extra manual skill adds recall burden.
 - **Path.** One substantively different case a document handles, with one trigger. Different phrasings of the same case are one path and share that trigger.
 
 ## Content placement

@@ -26,19 +26,19 @@ Two ways to attack any complexity: eliminate it (fewer special cases, one name p
 
 Working code isn't enough. The primary goal is a great design that also happens to work; most code is written by extending existing code, so what you leave behind outweighs how fast you finished. The bar for modifying existing code: **when the change is done, the system has the structure it would have had if it had been designed from the start with that change in mind.** Reach it by asking, before the first edit, whether the current design is still the best one given this change; if not, refactor to the design that is, then make the change on top of it. A flaw on the path of the change, one the change would otherwise have to code around, gets fixed, since a workaround is a second flaw that hides the first. A flaw beside the path is named to the user with what fixing it would cost and waits for their call; it is never fixed unasked and never silently coded around. What was left alone is listed in the report.
 
-Grow the system by abstractions, not by features: the first time a feature needs an abstraction, design that abstraction cleanly and whole, not as a minimal special-purpose version to generalize later, and not by letting a sequence of tests discover it one passing case at a time; settle the interface first, then test against it. Work in the project's terms: before designing or reviewing, read its domain glossary and relevant ADRs where they exist, and use those terms for the domain and [MODULE-DESIGN.md](MODULE-DESIGN.md)'s for the architecture.
+Grow the system by abstractions, not by features: the first time a feature needs an abstraction, design that abstraction cleanly and whole, not as a minimal special-purpose version to generalize later, and not by letting a sequence of tests discover it one passing case at a time; settle the interface first, then test against it. Work in the project's terms: before designing or reviewing, read its domain glossary and relevant ADRs where they exist, and use those terms for the domain and [MODULE-DESIGN.md](resources/MODULE-DESIGN.md)'s for the architecture.
 
 *Too far:* a whole-system design up front; the right structure emerges from real changes to running code, so invest in small improvements tied to each change, never a speculative redesign. A deadline, or a refactor that would break other teams, can force the quick fix; then ask what the cleanest design is within that constraint, look for an approach nearly as clean at a fraction of the cost, and name the deferred refactor so time gets allocated for it, rather than letting the patch stand silently.
 
 ## Decision records
 
-When reading, writing, or revising a lasting design decision, follow [DECISIONS.md](DECISIONS.md). Use the project's decision guide for its home. A record-only request follows that support file without running the design or review branches below.
+When reading, writing, or revising a lasting design decision, follow [DECISIONS.md](resources/DECISIONS.md). Use the project's decision guide for its home. A record-only request follows that support file without running the design or review branches below.
 
 ## Branch: focused design guidance
 
 For a question about module depth, an interface, seam placement, adapters, testability, or AI-navigability that does not ask for a full design or review:
 
-1. Read [MODULE-DESIGN.md](MODULE-DESIGN.md), plus [DEEPENING.md](DEEPENING.md) when dependencies, adapters, I/O, or testing affect the answer, and inspect the named code when there is any.
+1. Read [MODULE-DESIGN.md](resources/MODULE-DESIGN.md), plus [DEEPENING.md](resources/DEEPENING.md) when dependencies, adapters, I/O, or testing affect the answer, and inspect the named code when there is any.
 2. Explain what callers must know now, what knowledge the module hides, and where change or testing complexity currently spreads.
 3. Recommend one structure and state why it reduces total complexity; mention a competing structure only when the trade-off is real.
 
@@ -48,10 +48,10 @@ Done when the recommendation accounts for callers, hidden knowledge, dependencie
 
 For a new module or interface, a redesign, or an implementation request that changes code structure. One level up, for a request that splits a system into major modules or fixes a feature set, compare at least two decompositions before shaping any single module.
 
-1. **Design the interface.** Follow [DESIGN-IT-TWICE.md](DESIGN-IT-TWICE.md), which owns problem framing, caller-usage-first interface sketches, alternatives, comparison, and recommendation.
-2. **Shape it.** Work through every applicable move in [DESIGN.md](DESIGN.md), using [MODULE-DESIGN.md](MODULE-DESIGN.md) for depth, information hiding, seam placement, and the over-deepening brake, and [DEEPENING.md](DEEPENING.md) when dependencies, adapters, I/O, or testing affect the design.
+1. **Design the interface.** Follow [DESIGN-IT-TWICE.md](resources/DESIGN-IT-TWICE.md), which owns problem framing, caller-usage-first interface sketches, alternatives, comparison, and recommendation.
+2. **Shape it.** Work through every applicable move in [DESIGN.md](resources/DESIGN.md), using [MODULE-DESIGN.md](resources/MODULE-DESIGN.md) for depth, information hiding, seam placement, and the over-deepening brake, and [DEEPENING.md](resources/DEEPENING.md) when dependencies, adapters, I/O, or testing affect the design.
 3. **Design the implementation twice.** Compare at least two implementation structures on simplicity and performance without adding either to the caller's interface.
-4. **Gate before implementing.** Done when: the selected exploration branch in [DESIGN-IT-TWICE.md](DESIGN-IT-TWICE.md) is complete; two implementation structures were compared; the winning interface's comment is simple and complete; the common case asks the least possible of the caller; applicable dependency and testing choices are settled; and every named flag plus applicable supplemental check in [RED-FLAGS.md](RED-FLAGS.md) has a verdict. Eliminate each hit and rerun its check, or explicitly accept it because the best fix would increase total complexity; no unexplained hit may pass the gate.
+4. **Gate before implementing.** Done when: the selected exploration branch in [DESIGN-IT-TWICE.md](resources/DESIGN-IT-TWICE.md) is complete; two implementation structures were compared; the winning interface's comment is simple and complete; the common case asks the least possible of the caller; applicable dependency and testing choices are settled; and every named flag plus applicable supplemental check in [RED-FLAGS.md](resources/RED-FLAGS.md) has a verdict. Eliminate each hit and rerun its check, or explicitly accept it because the best fix would increase total complexity; no unexplained hit may pass the gate.
 
 This branch reaches a pre-implementation design. Implement after the gate only when the user asked for code changes; otherwise stop with the recommendation.
 
@@ -61,8 +61,8 @@ When implementation was requested, write each new method's interface comment bef
 
 For a diff, PR, module, or file: a design review, not a bug hunt. Correctness bugs require a separate code review. Deliver design findings; apply fixes only when asked.
 
-1. **Scope.** List the modules the target touches, classes, functions, interfaces. For a diff, that means the modules the changed code lives in, not just the changed lines. Read [MODULE-DESIGN.md](MODULE-DESIGN.md), plus [DEEPENING.md](DEEPENING.md) when dependencies or testing affect the design.
-2. **Sweep.** Read [RED-FLAGS.md](RED-FLAGS.md), check every module in scope against every named flag, and run each supplemental check where it applies. The sweep is done only when every named flag × module pair has a verdict, a skipped flag is a missed finding.
+1. **Scope.** List the modules the target touches, classes, functions, interfaces. For a diff, that means the modules the changed code lives in, not just the changed lines. Read [MODULE-DESIGN.md](resources/MODULE-DESIGN.md), plus [DEEPENING.md](resources/DEEPENING.md) when dependencies or testing affect the design.
+2. **Sweep.** Read [RED-FLAGS.md](resources/RED-FLAGS.md), check every module in scope against every named flag, and run each supplemental check where it applies. The sweep is done only when every named flag × module pair has a verdict, a skipped flag is a missed finding.
 3. **Diff checks** (diff and PR targets only). Does the change clear the strategic bar above, or is it the smallest patch that bends the design? Is every comment the change invalidates updated? Is anything future developers will need recorded only in the commit message, if so, it belongs in the code. When a convention nit can be checked mechanically, propose the lint rule or pre-commit check instead of the nit.
 4. **Report.** Order findings by complexity cost. Each finding names its source check, a catalog flag or supplemental check, the symptom it causes (change amplification, cognitive load, unknown unknowns) and the cause behind it (dependency or obscurity), and a concrete alternate design that eliminates it. Use the check's fix move; a finding is a prompt to redesign, not a complaint. Drop any finding whose best fix adds more interface than it removes.
 

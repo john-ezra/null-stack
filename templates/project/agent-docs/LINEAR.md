@@ -1,6 +1,6 @@
 # Linear context
 ---
-This file identifies the project's Linear workspace and team and records project-specific constraints. For Linear commands, read the `linear` skill for CLI mechanics. Artifact formats belong to their owning skills. For artifact placement and state transitions, read the [development lifecycle](DEVELOPMENT.md); its policies apply only if adopted.
+This file identifies the project's Linear workspace and team and records project-specific constraints. For Linear commands, read the `linear-cli` skill for CLI mechanics. Artifact formats belong to their owning skills. For artifact placement and state transitions, read the [development lifecycle](DEVELOPMENT.md); its policies apply only if adopted.
 
 Before accessing project records, resolve the workspace and team from the bindings below. An authenticated account or CLI default is not evidence that it is the right destination. If a needed binding is missing or ambiguous, ask the user before accessing that destination. Authorization for writes lives in [AGENTS.md](../AGENTS.md), under Rules.
 

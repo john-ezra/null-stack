@@ -25,7 +25,7 @@ Done when every proposed test carries its three-part rationale and every existin
 
 ## 2. Choose the risk set
 
-Start where the work started: for a defect the reported failure is the first test; for a feature or interface change the first tests cover the changed public behavior, never the steps of the implementation plan. Then walk the decision points a caller could notice, asking which carry a believable mistake: limits, precedence between competing rules, ordering, state transitions, the errors callers must handle, and commitments to older callers or formats. Read [ASSERTIONS.md](ASSERTIONS.md) here; it holds the input shape each needs, and every assertion written or reviewed is judged against it.
+Start where the work started: for a defect the reported failure is the first test; for a feature or interface change the first tests cover the changed public behavior, never the steps of the implementation plan. Then walk the decision points a caller could notice, asking which carry a believable mistake: limits, precedence between competing rules, ordering, state transitions, the errors callers must handle, and commitments to older callers or formats. Read [ASSERTIONS.md](resources/ASSERTIONS.md) here; it holds the input shape each needs, and every assertion written or reviewed is judged against it.
 
 Then identify pruning candidates: private helpers, structural wiring, incidental defaults, and construction that echoes its own arguments, unless the thing is itself an external commitment; anything whose only argument is an unexecuted line in a coverage report (meet an enforced threshold, still treat it as no evidence for any particular test); anything an existing test of equal strength already protects. Exclude proposed cases on these grounds; route existing tests through the deletion gate.
 
@@ -33,21 +33,21 @@ Done when deleting any selected case would leave a distinct risk unprotected, no
 
 ## 3. Choose the observation point
 
-Call the subject through the narrowest stable interface a real client uses that still exercises the whole promise, and observe only what the contract documents: the return value, the error, or a promised external effect such as a persisted row, an emitted message, or an outgoing request. An effect the code happens to produce is not a promise. Read [DOUBLES.md](DOUBLES.md) whenever the behavior crosses I/O or touches a collaborator you could control.
+Call the subject through the narrowest stable interface a real client uses that still exercises the whole promise, and observe only what the contract documents: the return value, the error, or a promised external effect such as a persisted row, an emitted message, or an outgoing request. An effect the code happens to produce is not a promise. Read [DOUBLES.md](resources/DOUBLES.md) whenever the behavior crosses I/O or touches a collaborator you could control.
 
-A promise visible only through private state, a deep import, or a seam that does not exist is a design question. Do not answer it with a test-only hook, an injected dependency, or an adapter added for the test; route it to `software-design` and its DEEPENING.md, which decides whether the seam becomes a port or stays internal and what a test may supply there, before any seam a test would use.
+A promise visible only through private state, a deep import, or a seam that does not exist is a design question. Do not answer it with a test-only hook, an injected dependency, or an adapter added for the test; route it to `software-design` and its [DEEPENING.md](../software-design/resources/DEEPENING.md), which decides whether the seam becomes a port or stays internal and what a test may supply there, before any seam a test would use.
 
 Done when the test observes the full promise through the caller's interface, with no reach into internals and no production structure that exists for the test.
 
 ## 4. Build the case
 
-Set up the least data under which the named mistake and the correct behavior give different answers, take the expected value from somewhere other than the code under test, and confirm any library or runtime semantics the test rests on in the documentation, the library's code, or a few executed lines before relying on them. Assert one precise outcome a caller could depend on, in the shapes ASSERTIONS.md requires, and name the test for the behavior it protects.
+Set up the least data under which the named mistake and the correct behavior give different answers, take the expected value from somewhere other than the code under test, and confirm any library or runtime semantics the test rests on in the documentation, the library's code, or a few executed lines before relying on them. Assert one precise outcome a caller could depend on, in the shapes [ASSERTIONS.md](resources/ASSERTIONS.md) requires, and name the test for the behavior it protects.
 
 Done when an internal refactor that preserves the contract would leave the test green and the named mistake would turn it red.
 
 ## 5. Choose controlled collaborators
 
-Whenever the behavior crosses I/O or an outside dependency, take the highest rung of the ladder in [DOUBLES.md](DOUBLES.md) that stays controlled and deterministic. A double supplies inputs from outside or captures an effect the contract promises to the outside, never proof that internal methods called each other, and never a restatement of the logic under test.
+Whenever the behavior crosses I/O or an outside dependency, take the highest rung of the ladder in [DOUBLES.md](resources/DOUBLES.md) that stays controlled and deterministic. A double supplies inputs from outside or captures an effect the contract promises to the outside, never proof that internal methods called each other, and never a restatement of the logic under test.
 
 Done when every dependency the behavior crosses has a rung and every relevant production path runs deterministically.
 

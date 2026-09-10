@@ -6,7 +6,7 @@ This file is authoring material, not adopted policy or a runnable workflow. Read
 
 1. Choose an adopted lifecycle, an explicit absence of one, or a relative link to another project-owned policy. Use one of the bounded blocks below as a starting point. The finished `agent-docs/DEVELOPMENT.md` holds project decisions and conditional pointers, not this authoring document with a few notes removed.
 2. Confirm entry thresholds, authoritative artifact homes, approval and write-policy choices, tracker event mapping, resizing, and effort completion. The finite-effort example is one choice, not a requirement. If the project does not use Linear, replace its tracker choices rather than inventing bindings. Read [Linear context](LINEAR.md) for identities, labels, priorities, visibility, and integrations; put those facts there, not in this policy.
-3. Read the owning skills before adopting the example's integrations. Keep slicing and requirement history in `spec`, plan decisions and replacements in `plan`, intent revisions in `intent`, PR evidence and close-out in `pr`, tracker mechanics in `linear`, and session-transfer construction in manual `handoff`. Preserve their approval boundaries. No workflow or tracker is required for standalone skill use.
+3. Read the owning skills before adopting the example's integrations. Keep slicing and requirement history in `spec`, plan decisions and replacements in `plan`, intent revisions in `intent`, PR evidence and close-out in `pr`, tracker mechanics in `linear-cli`, and session-transfer construction in manual `handoff`. Preserve their approval boundaries. No workflow or tracker is required for standalone skill use.
 4. Keep Git choices in [GIT.md](GIT.md), including PR scope and the landing branch, and lasting-decision rules in [design-decisions/README.md](design-decisions/README.md). Resolve conflicts with [project write restrictions](../AGENTS.md#6-rules) rather than repeating or weakening them. Confirm every artifact's owning repository when an effort spans repositories.
 5. Replace this entire file with the chosen block's adapted content, without its outer fence. Finish when all project choices are explicit, authoring instructions and unused examples are gone, retained links and anchors work from the consuming project, and no host-specific resource URI or toolkit-checkout path is required. The ordinary finished guide should be roughly 400-700 words; policy complexity, not a word quota, decides its length. Merely copying either example does not adopt it.
 
@@ -37,7 +37,7 @@ Content approval and write permission are separate. Follow [project write restri
 
 Before Git or PR work, read [Git conventions](GIT.md). Before Linear access, read [Linear context](LINEAR.md) for identities, labels, priorities, visibility, and integrations. Before design, change, review, or record maintenance, read [design decisions](design-decisions/README.md).
 
-Use `intent` for intents and revisions; `spec` for slicing, provenance, dependency decisions, and frozen-scope changes; `plan` for skip decisions and replacement plans; `pr` for PRs and post-merge close-out; `linear` for tracker writes and relation reconciliation. Suggest manual `handoff` for session transfer. Critique may use `shakedown`; neither critique nor transfer changes tracker state.
+Use `intent` for intents and revisions; `spec` for slicing, provenance, dependency decisions, and frozen-scope changes; `plan` for skip decisions and replacement plans; `pr` for PRs and post-merge close-out; `linear-cli` for tracker writes and relation reconciliation. Suggest manual `handoff` for session transfer. Critique may use `shakedown`; neither critique nor transfer changes tracker state.
 
 ## Entry and homes
 
@@ -59,7 +59,7 @@ Project overviews link the authoritative intent, never a second copy. Create a f
 
 ## Gates and tracker mapping
 
-Use exact existing destinations confirmed through `linear`. Issue states and project statuses are separate. Transitions are explicit, not triggered by branches or PR integrations.
+Use exact existing destinations confirmed through `linear-cli`. Issue states and project statuses are separate. Transitions are explicit, not triggered by branches or PR integrations.
 
 | Authorized event | Issue state | Project status |
 |---|---|---|
@@ -76,7 +76,7 @@ Planning alone is not pickup. Implementation owes every approved acceptance crit
 
 ## Resizing and completion
 
-An issue exceeding one session becomes a finite effort. Retain it as the first spec only if its approved contract fits. For an effort reduced to one slice, user authorization permits detaching the surviving issue and canceling the redundant project at `canceled`; preserve the intent and history unless separately authorized to move it. Use `spec` and `linear` for affected dependencies and scope records.
+An issue exceeding one session becomes a finite effort. Retain it as the first spec only if its approved contract fits. For an effort reduced to one slice, user authorization permits detaching the surviving issue and canceling the redundant project at `canceled`; preserve the intent and history unless separately authorized to move it. Use `spec` and `linear-cli` for affected dependencies and scope records.
 
 When all issues are terminal and the intent's stop criteria are met, present evidence for the operator's completion decision. With approval and permission for every write, land the intent's archive move, then repoint the overview to that landed file, then set the project to `completed`. Terminal issues alone never complete an effort.
 ```

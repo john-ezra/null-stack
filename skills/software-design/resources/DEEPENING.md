@@ -20,6 +20,6 @@ Sort every dependency of the candidate module into one of four categories. Each 
 ## Testing after a deepening
 
 - New tests sit at the deepened module's interface and assert observable results: return values, state readable through the interface, and effects that arrive at an adapter through a port.
-- Once interface-level tests cover the same behavior, identify tests of the merged shallow modules for retirement through `test-quality`'s [deletion gate](skill://test-quality). Aim to replace coverage rather than layer it. Any survivor that fails on an implementation-only change was pinned to the implementation: rewrite it against the interface when test edits are in scope, or identify it for removal through that gate.
+- Once interface-level tests cover the same behavior, identify tests of the merged shallow modules for retirement through `test-quality`'s [deletion gate](../../test-quality/SKILL.md#deletion-gate). Aim to replace coverage rather than layer it. Any survivor that fails on an implementation-only change was pinned to the implementation: rewrite it against the interface when test edits are in scope, or identify it for removal through that gate.
 
 The dependency question is settled only when every dependency of the candidate has a category, each seam has its port-or-internal verdict and its named test adapter or local substitute, and the new, rewritten, and retired tests and deferred retirement candidates are listed. Deferred removals do not block completion.

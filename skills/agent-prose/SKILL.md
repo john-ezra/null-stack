@@ -11,11 +11,11 @@ Write or audit documents that direct an agent, so that every run follows the sam
 - **Record or update personal conventions.** Take the personal-conventions path.
 - **Review or audit.** Take the audit path, whether the target is named by a path or established in the conversation.
 - **Create or revise.** For other agent-facing documents, take the drafting steps.
-- **The target is a skill.** Read [PACKAGING.md](PACKAGING.md) before deciding or judging its frontmatter, listed or manual mode, description, split, shared files, or menu behavior.
-- **A distinction matters.** Read [GLOSSARY.md](GLOSSARY.md) for every audit, and during drafting whenever a decision turns on the difference between two of its terms (pointer against link) or a term used below is one you could not define.
-- **Reading cannot settle whether a sentence or structure changes what the model does.** Run [BLIND-COMPARISON.md](BLIND-COMPARISON.md); assumed defaults are not evidence.
+- **The target is a skill.** Read [SKILL-AUTHORING.md](resources/SKILL-AUTHORING.md) before deciding or judging its metadata, invocation policy, description, split, shared files, or menu behavior.
+- **A distinction matters.** Read [GLOSSARY.md](resources/GLOSSARY.md) for every audit, and during drafting whenever a decision turns on the difference between two of its terms (pointer against link) or a term used below is one you could not define.
+- **Reading cannot settle whether a sentence or structure changes what the model does.** Run [BLIND-COMPARISON.md](resources/BLIND-COMPARISON.md); assumed defaults are not evidence.
 
-Done when the request has one path and the siblings that path needs are open.
+Done when the request has one path and the supporting documents that path needs are open.
 
 ## Drafting
 
@@ -39,20 +39,20 @@ Read up to two relevant neighbouring documents in the repo before writing. Exist
 2. **Preserve by default.** Keep every existing rule the request does not contradict; replacing the set outright needs the user's approval first. Done when every dropped rule has a contradicting request or that approval.
 3. **Gather evidence.** A preference the user states is evidence. A habit you observe becomes a rule only with repeated corroboration. Use only this conversation and transcripts the user handed you. Ask only short questions whose answers change a trigger, an authority, an output, or a workflow and that this record does not already answer. Done when every candidate rule has its evidence listed beside it.
 4. **Write decision rules.** Each rule says when it applies and what to do, not what the user is like. Do not repeat the skill list, which is already in context. Then run drafting steps 2 to 6 on the set. Done when every rule is a condition and an action with one home.
-5. **Validate.** Compare each rule with its evidence; when its effect on behavior is uncertain, run [BLIND-COMPARISON.md](BLIND-COMPARISON.md) before adopting it. Done when no uncertain rule was adopted untested.
+5. **Validate.** Compare each rule with its evidence; when its effect on behavior is uncertain, run [BLIND-COMPARISON.md](resources/BLIND-COMPARISON.md) before adopting it. Done when no uncertain rule was adopted untested.
 
 ## Audit
 
-Read the target in full and every file it points to, directly or through another file, before judging any passage; dispatch read-only `scout` subagents in one batch when the tree is large. Then run the passes in order.
+Read the target in full and every file it points to, directly or through another file, before judging any passage; dispatch read-only subagents in one batch when the tree is large. Consult the target harness's documentation when a judgment depends on discovery, loading, or metadata semantics. Then run the passes in order.
 
 1. **Reachability and remit.** List every path, every pointer and load mechanism that leads to material, and every scope boundary. For a skill, inspect the frontmatter and the description; for a linked file, inspect the exact loaded text that points to it. Name promises the body does not keep, needed paths no trigger reaches, overreach, and consequential decisions left unstated. Done when every path, pointer, and boundary has a verdict, reachable or not.
 2. **Behavior change.** Judge every sentence on its own against the model's ordinary behavior and mark it changing or inert; an inert sentence gets removal, not polish. When the default is uncertain, defer that sentence to a blind comparison. Done when every sentence has a verdict.
 3. **Placement and maintenance.** Assign each surviving block a rung: step, local support, or a named disclosed destination. Check each pointer's wording, each concept's co-location, overlength, stale buildup, duplicate homes, and prose that caches inspectable facts. Done when every block and pointer has a verdict and every problem is pinned to a passage.
 4. **Done conditions.** For each step, rate the bound on recognizability and on demanded work; for a flat rule set, rate the coverage bar. Pair each weak bound with a concrete replacement that is observable and demanding. Done when each step or rule body has a verdict.
-5. **Packaging.** Skills only. Done when the bar in PACKAGING.md is met.
+5. **Skill authoring.** Skills only. Done when the [authoring bar](resources/SKILL-AUTHORING.md#bar) is met.
 
 Report one list in descending behavioral risk: failures that keep needed material from loading or cause major scope drift first, weak local wording last. Each finding gives the location and excerpt, the failure mechanism, the behavioral consequence, and exactly one repair: removal, relocation to a named file, sharper pointer wording, compression through an anchor, positive restatement, or an explicit boundary. Edit nothing unless the request included implementation. Done when every finding has all four parts.
 
 ## Adjacent work
 
-`shape` for an idea too unformed to instruct. `shakedown` for pressure-testing a draft's assumptions. `intent`, then `spec`, then `plan` for capturing a need, slicing it, and sequencing implementation. `software-design` for code structure and interfaces. `pr` for pull requests, `linear` for tracking. `natural-english` for prose that reads as machine-written; it does not replace the behavioral analysis here. `handoff` is the user's to invoke when live work passes to a successor, never yours to load; suggest it by name.
+`shape` for an idea too unformed to instruct. `shakedown` for pressure-testing a draft's assumptions. `intent`, then `spec`, then `plan` for capturing a need, slicing it, and sequencing implementation. `software-design` for code structure and interfaces. `pr` for pull requests, `linear-cli` for Linear CLI mechanics, including the GraphQL fallback. `natural-english` for prose that reads as machine-written; it does not replace the behavioral analysis here. `handoff` is the user's to invoke when live work passes to a successor, never yours to load; suggest it by name.

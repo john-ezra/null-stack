@@ -6,7 +6,7 @@ A collection of agent skills, the copy-ready Project Starter, and authoring temp
 
 | Location | Purpose |
 | --- | --- |
-| [skills/](skills/) | Standalone capabilities, with supporting files inside each skill's directory |
+| [skills/](skills/) | Standalone capabilities, with a root `SKILL.md` and supporting documents under each skill's `resources/` directory |
 | [project-starter/](project-starter/) | Opinionated, copy-ready project guidance with concrete defaults and empty sections for project-specific facts |
 | [templates/project/AGENTS.md](templates/project/AGENTS.md) | Annotated project overview template, with its original instructions, examples, rules, and companion guides |
 | [templates/project/agent-docs/CODE-STYLE.md](templates/project/agent-docs/CODE-STYLE.md) | Authoring template for code conventions, documentation, naming, and formatting |
@@ -21,11 +21,29 @@ A reusable skill owns its task procedure and artifact semantics, including revis
 
 Keep one canonical checkout of `skills/` rather than copying it into every project. Changes to that checkout affect the projects using it. To distribute an individual skill, follow [Share individual skills](#share-individual-skills).
 
-Oh My Pi is the first supported host. For configuration, discovery precedence, manual invocation, and context loading, read [Oh My Pi setup and reachability](skills/agent-prose/OH-MY-PI.md). This repository does not install resources or change an agent's live configuration automatically.
+Oh My Pi is the first supported host; its [setup instructions](#oh-my-pi) are below. For another host, use its current documentation to configure discovery and check invocation behavior. This repository does not install resources or change an agent's live configuration automatically.
 
 The instructions aim to be portable, but other hosts have not been verified. Skills can also need ordinary task tools such as Git, a runnable project, or the Linear CLI. A missing capability is not permission to install it.
 
 Existing users must separately authorize any live setup migration. Replace obsolete central skill paths with the checkout's `skills/` path and remove the retired shared `Workflows/` root, while preserving unrelated configured roots. `templates/` is authoring source, never a discovery root.
+
+### Oh My Pi
+
+With explicit permission to configure OMP, add the checkout's absolute `skills/` path to `skills.customDirectories` in the active OMP configuration:
+
+```yaml
+skills:
+  enabled: true
+  enableSkillCommands: true
+  customDirectories:
+    - "/absolute/path/to/null-stack/skills"
+```
+
+Merge this entry with the existing configuration. Preserve unrelated settings and skill roots; array overrides replace lower-precedence arrays. Register `skills/`, not the checkout root, `project-starter/`, or `templates/`. If the user wants commands for [generated project workflows](#author-a-project-workflow), also include that consuming project's absolute `workflows/` path in the array.
+
+Check the effective roots with `omp config get skills.customDirectories --json` from the consuming project, then start a new session. Confirm `/skill:intent` is available and ask OMP to read `skill://intent` as source to check which checkout it selected, without executing the skill. Check a generated workflow's name the same way if you registered one.
+
+For discovery precedence, resource resolution, invocation metadata, context-file loading, and the active configuration location, consult OMP's documentation for the installed version: `omp://skills.md`, `omp://context-files.md`, and `omp://settings.md`. The [upstream OMP guide](https://github.com/can1357/oh-my-pi#readme) is the public setup reference. These host details do not define how skills work in another tool.
 
 ## Share individual skills
 
@@ -33,10 +51,10 @@ Share the skill with all its required dependencies, including those reached thro
 
 1. Start with the skill's `SKILL.md` and follow its supporting-file pointers. Read every supported branch, including conditional ones, and identify instructions that require another skill or resource. Check references by name as well as links. A required read or handoff counts even if your first task will not trigger it; an optional adjacent suggestion, such as `test-quality`'s `shakedown` suggestion on request, does not.
 2. Add the complete owning package for each required destination, then inspect that package's instructions and support in the same way. Repeat until every required destination belongs to an included package and no unread required references remain. Visit each package once so references back to an included package do not loop.
-3. Copy those package directories with all their supporting files and a copy of [license](license). Preserve package names and internal paths. Keep shared rules in their owning package, as [Shared material](skills/agent-prose/PACKAGING.md#shared-material) requires; do not paste a dependency's rules into the skill that uses them.
-4. Make the copied packages discoverable through the destination host, then check every required read against the copied distribution with the original checkout and unrelated installed skills unavailable. Check both skill entry points and supporting-resource paths. For OMP, follow [setup and reachability](skills/agent-prose/OH-MY-PI.md); other hosts need their own resolver. Reading support does not invoke its owning skill, and installing the packages does not adopt a workflow.
+3. Copy those package directories with all their supporting files and a copy of [license](license). Preserve package names and internal paths. Keep shared rules in their owning package, as [Shared material](skills/agent-prose/resources/SKILL-AUTHORING.md#shared-material) explains; do not paste a dependency's rules into the skill that uses them.
+4. Make the copied packages discoverable through the destination host, then check every required read against the copied distribution with the original checkout and unrelated installed skills unavailable. Check both skill entry points and supporting-resource paths. For OMP, follow [its setup instructions](#oh-my-pi); for another host, check its loading rules. Reading support does not invoke its owning skill, and installing the packages does not adopt a workflow.
 
-For example, [software-design/DEEPENING.md](skills/software-design/DEEPENING.md) sends test-retirement decisions to the deletion gate in [test-quality/SKILL.md](skills/test-quality/SKILL.md#deletion-gate). Include the complete `software-design/` and `test-quality/` packages, including `test-quality/ASSERTIONS.md` and `test-quality/DOUBLES.md`. Keep the gate in `test-quality`; this README and the copied `software-design` package should only point to it. This is one required dependency path, not the end of the discovery procedure: follow the remaining required references before declaring the distribution complete.
+For example, [software-design/resources/DEEPENING.md](skills/software-design/resources/DEEPENING.md) sends test-retirement decisions to the deletion gate in [test-quality/SKILL.md](skills/test-quality/SKILL.md#deletion-gate). Include the complete `software-design/` and `test-quality/` packages, including `test-quality/resources/ASSERTIONS.md` and `test-quality/resources/DOUBLES.md`. Keep the gate in `test-quality`; this README and the copied `software-design` package should only point to it. This is one required dependency path, not the end of the discovery procedure: follow the remaining required references before declaring the distribution complete.
 
 ## Start a project
 
@@ -72,15 +90,17 @@ The starter contains no workflow files. When a project needs one, use [templates
 
 Write the chosen block to `workflows/<chosen-name>/SKILL.md` in the project. Customize its skill sequence and task-specific modes or conditions, match its frontmatter `name` to the directory, and keep `disable-model-invocation: true`. Remove authoring instructions, outer fences, and unused blocks. Keep procedures in the skills and policy in the project guide. The workflow's `../../agent-docs/DEVELOPMENT.md` pointer resolves from its final project directory; retain that guide even when no lifecycle is selected.
 
-The user can ask an agent to follow the generated workflow by filesystem path without registering a command. For optional host registration, follow [Oh My Pi setup and reachability](skills/agent-prose/OH-MY-PI.md). Preserve unrelated configured roots and never register `templates/` or the toolkit's `project-starter/`. Changing live configuration requires separate explicit permission.
+The user can ask an agent to follow the generated workflow by filesystem path without registering a command. For optional OMP registration, follow [its setup instructions](#oh-my-pi). On another host, consult its current documentation. Preserve unrelated configured roots and never register `templates/` or the toolkit's `project-starter/`. Changing live configuration requires separate explicit permission.
 
 Copied guides and generated workflows are project-owned. Updating Null Stack does not overwrite them. Reading them does not authorize execution or publication, and individual skills remain usable on their own.
 
 Check adopted or adapted guidance outside the toolkit checkout. Every retained local link and anchor must resolve from the consuming project, and required skills must be available for any integrations or workflows it adopts. Check the starter's public template link before distribution. Authoring instructions belong in the templates, not the finished project; the starter's empty factual sections and template pointer stay, as do formats for documents created during ordinary work.
 
-## Packaging guidance
+## Skill packages
 
-For resource layout, frontmatter, and supporting-file conventions, read [the packaging guidance](skills/agent-prose/PACKAGING.md).
+Each package keeps its entrypoint at `skills/<name>/SKILL.md`. Supporting documents live under `skills/<name>/resources/`; packages without support need no empty directory. Links between packages use relative filesystem paths, so shared support does not require a host-specific resource resolver.
+
+For reusable guidance on descriptions, invocation choices, skill boundaries, and shared support, read [skill authoring](skills/agent-prose/resources/SKILL-AUTHORING.md). Use the target format and harness documentation for metadata and loading behavior.
 
 ## License
 
