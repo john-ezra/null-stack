@@ -22,6 +22,8 @@ One home per kind of information; a fact lives in its home, everywhere else poin
 
 | Read | When |
 | --- | --- |
+| [Project outline](agent-docs/PROJECT-OUTLINE.md) | When understanding the project or considering changes to its purpose, capabilities, or scope |
+| [Research](agent-docs/research/README.md) | Before investigating a topic or making a decision that prior research may inform |
 | [Development policy](agent-docs/DEVELOPMENT.md) | Before scoping, planning, implementing, reviewing, publishing, or closing out project work |
 | [Git conventions](agent-docs/GIT.md) | Before any Git operation or PR work |
 | [Code style](agent-docs/CODE-STYLE.md) | Before the first code or documentation edit in a session |

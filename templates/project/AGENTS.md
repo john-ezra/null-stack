@@ -58,6 +58,8 @@ One home per kind of information; a fact lives in its home, everywhere else poin
 
 | Read | When |
 | --- | --- |
+| [Project outline](agent-docs/PROJECT-OUTLINE.md) | When understanding the project or considering changes to its purpose, capabilities, or scope |
+| [Research](agent-docs/research/README.md) | Before investigating a topic or making a decision that prior research may inform |
 | [Development lifecycle](agent-docs/DEVELOPMENT.md) | Before scoping, planning, implementing, reviewing, publishing, or closing out project work |
 | [Git conventions](agent-docs/GIT.md) | Before any Git operation or PR work |
 | [Code style](agent-docs/CODE-STYLE.md) | Before the first code or documentation edit in a session |
@@ -87,7 +89,7 @@ Example: Teach while building. When a Go idiom or a design move shows up in the 
 
 ## How to use this template
 ---
-1. Copy this file as the project's `AGENTS.md` and the entire `agent-docs/` directory beside it, including `DEVELOPMENT.md` and `design-decisions/README.md`. Fill the project-specific sections of the guides as well as this overview.
+1. Copy this file as the project's `AGENTS.md` and the entire `agent-docs/` directory beside it, including `PROJECT-OUTLINE.md`, `research/`, `DEVELOPMENT.md`, and `design-decisions/README.md`. Fill the project-specific sections of the guides as well as this overview.
 2. In this overview, unlabeled text, bullets, and the table are project content. Retain them unless the project differs. Each guide supplies its own authoring instructions.
 3. Italic text is an editing instruction. Replace it with project facts, or remove the section when it does not apply.
 4. Fenced blocks labeled "Example:" illustrate filled content, not project facts. Delete them after filling each section.

@@ -9,6 +9,8 @@ A collection of agent skills, the copy-ready Project Starter, and authoring temp
 | [skills/](skills/) | Standalone capabilities, with a root `SKILL.md` and supporting documents under each skill's `resources/` directory |
 | [project-starter/](project-starter/) | Opinionated, copy-ready project guidance with concrete defaults and empty sections for project-specific facts |
 | [templates/project/AGENTS.md](templates/project/AGENTS.md) | Annotated project overview template, with its original instructions, examples, rules, and companion guides |
+| [templates/project/agent-docs/PROJECT-OUTLINE.md](templates/project/agent-docs/PROJECT-OUTLINE.md) | Authoring template for the project's purpose, audience, capabilities, and broad scope |
+| [templates/project/agent-docs/research/README.md](templates/project/agent-docs/research/README.md) | Authoring guidance for the project's research-report home |
 | [templates/project/agent-docs/CODE-STYLE.md](templates/project/agent-docs/CODE-STYLE.md) | Authoring template for code conventions, documentation, naming, and formatting |
 | [templates/project/agent-docs/DEVELOPMENT.md](templates/project/agent-docs/DEVELOPMENT.md) | Authoring source for an optional project lifecycle policy |
 | [templates/project/agent-docs/GIT.md](templates/project/agent-docs/GIT.md) | Authoring template for branching, commits, pull requests, and merges |
@@ -52,21 +54,26 @@ For example, [software-design/resources/DEEPENING.md](skills/software-design/res
 
 ## Start a project
 
-Copy the contents of [project-starter/](project-starter/) into the destination project without overwriting existing guidance. Include the entire `agent-docs/` directory, including `design-decisions/`. Preserve the toolkit's [license notice](#license) without replacing the destination project's license. For an existing project, reconcile its current instructions before adopting the starter.
+Copy the contents of [project-starter/](project-starter/) into the destination project without overwriting existing guidance. Include the entire `agent-docs/` directory, including `PROJECT-OUTLINE.md`, `research/`, and `design-decisions/`. Preserve the toolkit's [license notice](#license) without replacing the destination project's license. For an existing project, reconcile its current instructions before adopting the starter.
 
 ```text
 project/
   AGENTS.md
   agent-docs/
+    PROJECT-OUTLINE.md
     GIT.md
     CODE-STYLE.md
     LINEAR.md
     DEVELOPMENT.md
+    research/
+      README.md
     design-decisions/
       README.md
 ```
 
-The starter's `AGENTS.md` keeps empty sections for the project name and purpose, tech stack, commands, and project structure. Fill them with confirmed facts when customizing; leaving them empty does not block ordinary work. The operating defaults, guide pointers, and permission rules are already filled in. The starter selects conservative Git conventions, follows the consuming repository's tooling, and keeps design-decision rules and format locally. It selects no formal development lifecycle or task workflows and configures no Linear integration.
+The starter's `AGENTS.md` keeps empty sections for the project name and purpose, tech stack, commands, and project structure. The [project outline](project-starter/agent-docs/PROJECT-OUTLINE.md) holds the fuller project description, with empty sections for purpose, audience, capabilities, and scope. Fill them with confirmed facts when customizing; leaving them empty does not block ordinary work. The operating defaults, guide pointers, and permission rules are already filled in. The starter selects conservative Git conventions, follows the consuming repository's tooling, and keeps design-decision rules and format locally. It selects no formal development lifecycle or task workflows and configures no Linear integration.
+
+Keep research reports in [agent-docs/research/](project-starter/agent-docs/research/README.md). Its guide explains where to save reports and when to consult them. Research holds findings and supporting sources; accepted decisions and their rationale belong in `design-decisions/` under its guide's rules. The project outline stays separate from task-specific goals, requirements, and plans when those artifacts are used.
 
 For help filling project-specific sections, read the annotations and examples in the [AGENTS.md template](templates/project/AGENTS.md). The instructions live in the template itself, not in a separate customization guide. The starter's pointer names the source path and uses the public template URL so it survives copying. Ordinary work needs no network access, toolkit checkout, installed skills, or host-specific resolver.
 
