@@ -30,9 +30,9 @@ The workspace repository holds the authoritative intent, spec, and plan files. L
 
 | Artifact | Active directory | Archive directory |
 |---|---|---|
-| Intent | `agent-docs/ephemera/intents/` | `agent-docs/archive/<outcome>/intents/` |
-| Spec | `agent-docs/ephemera/specs/` | `agent-docs/archive/<outcome>/specs/` |
-| Plan | `agent-docs/ephemera/plans/` | `agent-docs/archive/<outcome>/plans/` |
+| Intent | `agent-docs/ephemera/intents/` | `agent-docs/ephemera/archive/<outcome>/intents/` |
+| Spec | `agent-docs/ephemera/specs/` | `agent-docs/ephemera/archive/<outcome>/specs/` |
+| Plan | `agent-docs/ephemera/plans/` | `agent-docs/ephemera/archive/<outcome>/plans/` |
 
 The outcome is `completed` when the work met its completion criteria, `canceled` when it was deliberately stopped short of its scope, and `superseded` when another artifact or effort replaced it. Preserve the reason for cancellation or supersession and links to any replacement. Do not rewrite unfinished requirements to imply they were met.
 
