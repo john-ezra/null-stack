@@ -1,16 +1,39 @@
 # Git conventions
 
-The hard guardrails live in [AGENTS.md under Rules](../AGENTS.md#rules). This file owns branching, commit, PR, and merge conventions; it grants no permission to publish.
+The hard guardrails live in [AGENTS.md under Rules](../AGENTS.md#rules). This file owns repository layout, branching, worktree, commit, PR, and merge conventions; it grants no permission to publish.
+
+## Repositories
+
+This workspace is the private repository. The project's code is a Git submodule with its own repository, history, and pull requests, checked out at the path `.gitmodules` records. Agent guidance, agent docs, workflows, tracker configuration, and worktrees stay in the workspace; keep them out of the project repository.
+
+Before any Git write, identify the owning repository from the paths that change and run Git commands in that repository's checkout. A submodule checkout can sit on a detached HEAD because the workspace records a commit, not a branch; create or select the task's branch inside the submodule before editing project files. Project commits and PRs must make sense without access to the workspace, so do not link workspace files or artifacts from them.
+
+For a change that spans both repositories, land the project PR first and confirm the commit that landed it; the feature branch head is not the delivered revision. Record that commit in the workspace's gitlink, then land the workspace PR with the pointer update and related private changes. Never point the workspace at an unpublished project commit. Workspace-only changes need no project commit or PR.
+
+After a workspace update, `git submodule update --init --recursive` from the workspace root brings a clean project checkout to the recorded revision. Do not discard local work to make it succeed.
 
 ## Branches
 
 Use a short-lived branch for every change, including routine maintenance and documentation-only work. Create or select the task's branch before the first repository edit; never edit on the default branch.
 
-Identify the owning repository and its default branch from repository configuration or hosting metadata. If the default branch remains unclear, resolve it with the user before branching or choosing a PR target. Start new task branches from their intended target, normally the default branch.
+Identify the default branch from repository configuration or hosting metadata. If it remains unclear, resolve it with the user before branching or choosing a PR target. Start new task branches from their intended target, normally the default branch.
 
 Name branches `<kind>/<short-kebab-case-description>`, using `feat`, `fix`, `docs`, `refactor`, or `chore`. Keep tracker associations in the tracker rather than in branch names.
 
 Continue on an existing branch when it belongs to the requested work. Preserve unrelated changes rather than resetting or discarding them to prepare a branch. When a branch needs the target's newer commits, merge the target into it rather than rebasing; history rewriting requires explicit permission.
+
+## Worktrees
+
+Switch branches in the current checkout unless the work needs a second checkout at the same time, such as agents working on different branches in parallel or a side-by-side comparison of two branches. Before adding a worktree, check `git worktree list` and reuse the one already holding that branch.
+
+Create every worktree under `.worktrees/` at the workspace root, which the workspace's `.gitignore` excludes. Name the directory for the branch with `/` replaced by `-`. Nest the project repository's worktrees under its submodule path so the two repositories cannot collide:
+
+```sh
+git worktree add .worktrees/feat-login feat/login
+git -C <project> worktree add ../.worktrees/<project>/feat-login feat/login
+```
+
+Remove a worktree with `git worktree remove` when its branch's work is closed out or abandoned, and before deleting the branch; Git refuses to delete a branch that a worktree has checked out. Run `git worktree prune` for registrations whose directories are gone. Leave the main checkouts and worktrees you did not create alone; removing them requires explicit permission. Worktrees the agent harness manages for isolated tasks follow its own location and cleanup.
 
 ## Commits
 
@@ -30,6 +53,6 @@ When the user authorizes a merge, use squash merge. Use another method only on e
 
 ## Branch cleanup
 
-Successful authorized closeout includes deleting the task's merged branches locally and remotely, without a separate deletion request. This standing permission covers only that task's branches, never the default branch or unrelated branches.
+Successful authorized closeout includes removing the task's worktrees and deleting its merged branches locally and remotely, without a separate deletion request. This standing permission covers only that task's worktrees and branches, never the main checkouts, the default branch, or unrelated ones.
 
-Before deletion, confirm the actual PR merge, a clean working tree, no unpushed work, and no commits added to the branch after the revision that was merged. For squash merges, compare the branch tip with the confirmed PR head rather than relying on commit ancestry. If any check fails, preserve the branch and report the pending cleanup.
+Before deletion, confirm the actual PR merge, a clean working tree, no unpushed work, and no commits added to the branch after the revision that was merged. For squash merges, compare the branch tip with the confirmed PR head rather than relying on commit ancestry. If any check fails, preserve the worktree and branch and report the pending cleanup.

@@ -10,6 +10,10 @@ When customizing this file, read the [AGENTS.md template](https://github.com/joh
 
 ## Project structure
 
+## Repositories
+
+This workspace is the private repository. The project's code is a Git submodule at the path `.gitmodules` records, with its own repository, history, and pull requests. Agent guidance, agent docs, workflows, tracker configuration, and worktrees live here and stay out of the project repository. Before any Git write, identify the owning repository from the paths that change; [Git conventions](agent-docs/GIT.md#repositories) cover branching inside the submodule and the two-repository publication order.
+
 ## Repository evidence
 
 Read the repository's maintained documentation, manifests, configuration, and affected source before choosing tools or changing code. Use them to identify the stack, package manager, architecture, and commands. Do not assume a language, runtime, service, or command from these guides.

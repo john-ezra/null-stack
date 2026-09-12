@@ -26,7 +26,7 @@ When work starts in a session and needs a spec or intent, create the issue or pr
 
 ## Artifact homes
 
-The repository holds the authoritative intent, spec, and plan files. Linear records link to those files rather than hold copies of their bodies: link an intent from its project, and a spec and its plans from their issue. Implementation may proceed against approved local artifacts; publishing them is not a prerequisite. Add or update Linear links only after their targets are published.
+The workspace repository holds the authoritative intent, spec, and plan files. Linear records link to those files rather than hold copies of their bodies: link an intent from its project, and a spec and its plans from their issue. Implementation may proceed against approved local artifacts; publishing them is not a prerequisite. Add or update Linear links only after their targets are published.
 
 | Artifact | Active directory | Archive directory |
 |---|---|---|
