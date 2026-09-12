@@ -45,3 +45,4 @@ One home per kind of information; a fact lives in its home, everywhere else poin
 - Preserve unrelated work and private files. Deletion or history rewriting requires explicit permission.
 - Create, update, move, or comment on Linear records only when explicitly asked. Approval of content is not permission to publish it or change tracker state.
 - Repository edits do not authorize installation, live configuration changes, releases, or deployment. Resolve missing permission before taking those actions.
+- Prefer project-local or task-isolated installs. System-wide and user-wide installs both count as global and require a strong reason why a local or isolated install is insufficient. Before proceeding with a global install, explain what will be installed, where, and why global scope is necessary, and obtain explicit approval for that scope.
