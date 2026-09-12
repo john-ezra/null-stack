@@ -7,17 +7,16 @@ A collection of agent skills, the copy-ready Project Starter, and authoring temp
 | Location | Purpose |
 | --- | --- |
 | [skills/](skills/) | Standalone capabilities, with a root `SKILL.md` and supporting documents under each skill's `resources/` directory |
-| [project-starter/](project-starter/) | Opinionated, copy-ready project guidance with concrete defaults and empty sections for project-specific facts |
-| [templates/project/AGENTS.md](templates/project/AGENTS.md) | Annotated project overview template, with its original instructions, examples, rules, and companion guides |
-| [templates/project/agent-docs/PROJECT-OUTLINE.md](templates/project/agent-docs/PROJECT-OUTLINE.md) | Authoring template for the project's purpose, audience, capabilities, and broad scope |
-| [templates/project/agent-docs/research/README.md](templates/project/agent-docs/research/README.md) | Authoring guidance for the project's research-report home |
-| [templates/project/agent-docs/CODE-STYLE.md](templates/project/agent-docs/CODE-STYLE.md) | Authoring template for code conventions, documentation, naming, and formatting |
-| [templates/project/agent-docs/DEVELOPMENT.md](templates/project/agent-docs/DEVELOPMENT.md) | Authoring source for an optional project lifecycle policy |
-| [templates/project/agent-docs/GIT.md](templates/project/agent-docs/GIT.md) | Authoring template for branching, commits, pull requests, and merges |
-| [templates/project/agent-docs/LINEAR.md](templates/project/agent-docs/LINEAR.md) | Authoring template for Linear bindings and project-specific constraints |
-| [templates/workflows/SKILL.md](templates/workflows/SKILL.md) | Plain Markdown authoring source with a generic workflow template and labeled `fix-bug` and `add-feature` examples |
+| [project-starter/](project-starter/) | Opinionated, copy-ready project guidance with a finite-effort lifecycle, Linear conventions, and two task workflows; project-specific facts stay empty |
+| [templates/AGENTS.md](templates/AGENTS.md) | Project overview template with section instructions, examples, the guide table, rules, and how-to-use steps; becomes the project's `AGENTS.md` |
+| [templates/PROJECT-OUTLINE.md](templates/PROJECT-OUTLINE.md) | Template for the project's purpose, audience, capabilities, and scope; becomes `agent-docs/PROJECT-OUTLINE.md` |
+| [templates/CODE-STYLE.md](templates/CODE-STYLE.md) | Template for code conventions, documentation, naming, and formatting; becomes `agent-docs/CODE-STYLE.md` |
+| [templates/DEVELOPMENT.md](templates/DEVELOPMENT.md) | Blank lifecycle policy with per-section instructions, examples, and a no-lifecycle option; becomes `agent-docs/DEVELOPMENT.md` |
+| [templates/GIT.md](templates/GIT.md) | Template for branching, commits, pull requests, and merges; becomes `agent-docs/GIT.md` |
+| [templates/LINEAR.md](templates/LINEAR.md) | Template for Linear bindings, write permission, and project constraints; becomes `agent-docs/LINEAR.md` |
+| [templates/WORKFLOW.md](templates/WORKFLOW.md) | Authoring steps and one generic fenced block for a task workflow; the block becomes `workflows/<name>/SKILL.md` |
 
-A reusable skill owns its task procedure and artifact semantics, including revision and close-out. Project lifecycle policy chooses entry thresholds, artifact destinations, project approval gates and write rules, tracker event mapping, and effort completion. Short task workflows select skills and their order without repeating procedures or policy. Topic guides own Git conventions, Linear bindings and constraints, and lasting design decisions; shared skill defaults defer to project-owned record rules. Copying project guidance does not adopt a lifecycle or execute a workflow.
+A reusable skill owns its task procedure and artifact semantics, including revision and close-out. Project lifecycle policy chooses entry thresholds, artifact destinations, project approval gates and write rules, tracker event mapping, and effort completion. Short task workflows select skills and their order without repeating procedures or policy. Topic guides own Git conventions, Linear bindings and constraints, and lasting design decisions; shared skill defaults defer to project-owned record rules. Copying the starter adopts its policy; copying a template adopts nothing until it is filled. Neither executes a workflow.
 
 ## Use the shared library
 
@@ -54,7 +53,7 @@ For example, [software-design/resources/DEEPENING.md](skills/software-design/res
 
 ## Start a project
 
-Copy the contents of [project-starter/](project-starter/) into the destination project without overwriting existing guidance. Include the entire `agent-docs/` directory, including `PROJECT-OUTLINE.md`, `research/`, and `design-decisions/`. Preserve the toolkit's [license notice](#license) without replacing the destination project's license. For an existing project, reconcile its current instructions before adopting the starter.
+Copy the contents of [project-starter/](project-starter/) into the destination project without overwriting existing guidance. Include the entire `agent-docs/` directory, including `PROJECT-OUTLINE.md`, `research/`, and `design-decisions/`, and the `workflows/` directory. Preserve the toolkit's [license notice](#license) without replacing the destination project's license. For an existing project, reconcile its current instructions before adopting the starter.
 
 ```text
 project/
@@ -69,27 +68,32 @@ project/
       README.md
     design-decisions/
       README.md
+  workflows/
+    fix-bug/
+      SKILL.md
+    add-feature/
+      SKILL.md
 ```
 
-The starter's `AGENTS.md` keeps empty sections for the project name and purpose, tech stack, commands, and project structure. The [project outline](project-starter/agent-docs/PROJECT-OUTLINE.md) holds the fuller project description, with empty sections for purpose, audience, capabilities, and scope. Fill them with confirmed facts when customizing; leaving them empty does not block ordinary work. The operating defaults, guide pointers, and permission rules are already filled in. The starter selects conservative Git conventions, follows the consuming repository's tooling, and keeps design-decision rules and format locally. It selects no formal development lifecycle or task workflows and configures no Linear integration.
+The starter's `AGENTS.md` keeps empty sections for the project name and purpose, tech stack, commands, and project structure. The [project outline](project-starter/agent-docs/PROJECT-OUTLINE.md) holds the fuller project description, with empty sections for purpose, audience, capabilities, and scope. Fill them with confirmed facts when customizing; leaving them empty does not block ordinary work. The operating defaults, guide pointers, and permission rules are already filled in. The starter selects conservative Git conventions, follows the consuming repository's tooling, and keeps design-decision rules and format locally. It selects the finite-effort lifecycle in [agent-docs/DEVELOPMENT.md](project-starter/agent-docs/DEVELOPMENT.md), keeps Linear conventions in [agent-docs/LINEAR.md](project-starter/agent-docs/LINEAR.md) with an empty bindings table for the project to fill, and ships two task workflows, [fix-bug](project-starter/workflows/fix-bug/SKILL.md) and [add-feature](project-starter/workflows/add-feature/SKILL.md), which run only on explicit request.
 
 Keep research reports in [agent-docs/research/](project-starter/agent-docs/research/README.md). Its guide explains where to save reports and when to consult them. Research holds findings and supporting sources; accepted decisions and their rationale belong in `design-decisions/` under its guide's rules. The project outline stays separate from task-specific goals, requirements, and plans when those artifacts are used.
 
-For help filling project-specific sections, read the annotations and examples in the [AGENTS.md template](templates/project/AGENTS.md). The instructions live in the template itself, not in a separate customization guide. The starter's pointer names the source path and uses the public template URL so it survives copying. Ordinary work needs no network access, toolkit checkout, installed skills, or host-specific resolver.
+For help filling project-specific sections, read the instructions and examples in the [AGENTS.md template](templates/AGENTS.md). The instructions live in the template itself, not in a separate customization guide. The starter's pointer names the source path and uses the public template URL so it survives copying. Ordinary work needs no network access, toolkit checkout, installed skills, or host-specific resolver.
 
-To adopt a lifecycle, use [the lifecycle authoring template](templates/project/agent-docs/DEVELOPMENT.md) to write the project's `agent-docs/DEVELOPMENT.md`. Keep only the adapted policy block, without authoring instructions or outer fences. Adapt its links to the consuming overview, including the Rules anchor: the annotated template uses `#6-rules`, while the starter uses `#rules`. Policy and task workflows are separate choices; the starter's no-lifecycle default needs no further setup.
+To adopt a different policy, use [templates/DEVELOPMENT.md](templates/DEVELOPMENT.md) to write the project's `agent-docs/DEVELOPMENT.md`, or replace the file with that template's no-lifecycle block. Keep only the adapted policy, without authoring instructions or outer fences, and adapt its links to the consuming project. Policy and task workflows are separate choices; a project that drops a shipped workflow also removes its links from the overview and the policy.
 
 ### Author a project AGENTS.md
 
-Use [templates/project/AGENTS.md](templates/project/AGENTS.md) for the annotated template. It includes the original section instructions, filled examples, document pointers, rules, and "How to use this template" section. Copy it with its adjacent `agent-docs/` directory, then follow those instructions to adapt the overview and companion guides.
+Use [templates/AGENTS.md](templates/AGENTS.md) for the overview template. Templates are flat, one file per document kind, and each is a blank copy-source with inline editing instructions and examples that names its destination in the project. Copy `templates/AGENTS.md` as the project's `AGENTS.md`, and copy the companion templates, [PROJECT-OUTLINE.md](templates/PROJECT-OUTLINE.md), [DEVELOPMENT.md](templates/DEVELOPMENT.md), [GIT.md](templates/GIT.md), [CODE-STYLE.md](templates/CODE-STYLE.md), and [LINEAR.md](templates/LINEAR.md), into `agent-docs/`. The research and design-decision guides have no template; copy [research/README.md](project-starter/agent-docs/research/README.md) and [design-decisions/README.md](project-starter/agent-docs/design-decisions/README.md) from Project Starter, or remove their rows from the overview's table. Template links resolve from their destination in the consuming project, not from `templates/`. Follow the overview's "How to use this template" section to adapt it and the companion guides.
 
-The template is authoring material; `project-starter/` is the opinionated, ready-to-use alternative. Keep authoring notes and unused examples out of the finished project. Neither adopted form depends on this toolkit during ordinary work.
+The templates are authoring material; `project-starter/` is the opinionated, ready-to-use alternative. Keep authoring notes and unused examples out of the finished project. Neither adopted form depends on this toolkit during ordinary work.
 
 ### Author a project workflow
 
-The starter contains no workflow files. When a project needs one, use [templates/workflows/SKILL.md](templates/workflows/SKILL.md). It contains a generic template and labeled `fix-bug` and `add-feature` examples, not installed commands or preselected recipes.
+The starter ships two workflows, [fix-bug](project-starter/workflows/fix-bug/SKILL.md) and [add-feature](project-starter/workflows/add-feature/SKILL.md). For another recurring task, use [templates/WORKFLOW.md](templates/WORKFLOW.md). It holds the authoring steps and one generic fenced block, not shipped examples, installed commands, or preselected recipes.
 
-Write the chosen block to `workflows/<chosen-name>/SKILL.md` in the project. Customize its skill sequence and task-specific modes or conditions, match its frontmatter `name` to the directory, and keep `disable-model-invocation: true`. Remove authoring instructions, outer fences, and unused blocks. Keep procedures in the skills and policy in the project guide. The workflow's `../../agent-docs/DEVELOPMENT.md` pointer resolves from its final project directory; retain that guide even when no lifecycle is selected.
+Write the block to `workflows/<chosen-name>/SKILL.md` in the project. Customize its skill sequence and task-specific modes or conditions, match its frontmatter `name` to the directory, and keep `disable-model-invocation: true`. Remove authoring instructions and outer fences. Keep procedures in the skills and policy in the project guide. The workflow's `../../agent-docs/DEVELOPMENT.md` pointer resolves from its final project directory; retain that guide even when no lifecycle is selected.
 
 Users choose how to make generated workflows and their required skills available through their harness, following its current documentation. An unregistered workflow can be followed by filesystem path on the user's request where the host supports that entrypoint. If the host requires a native user command, use it rather than bypassing its manual-invocation gate. Preserve unrelated configured resources and never expose `templates/` or the toolkit's `project-starter/` as runnable skills. Changing live configuration requires separate explicit permission.
 

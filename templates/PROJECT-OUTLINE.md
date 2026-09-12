@@ -5,7 +5,7 @@ Keep the project's purpose, audience, capabilities, and broad scope here. The sh
 
 Task-specific goals, delivery requirements, and plans belong in their own artifacts when used, under [development policy](DEVELOPMENT.md). Keep them out of this outline.
 
-*Fill the sections below with confirmed project facts. Remove the editing instructions and examples when filled. Keep this outline focused on the project as a whole, rather than a particular release or work item.*
+*This template becomes `agent-docs/PROJECT-OUTLINE.md`; its links resolve from there. Fill the sections below with confirmed project facts. Remove the editing instructions and examples when filled. Keep this outline focused on the project as a whole, rather than a particular release or work item.*
 
 ## Purpose
 

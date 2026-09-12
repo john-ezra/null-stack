@@ -2,7 +2,7 @@
 ---
 The hard guardrails live in [AGENTS.md](../AGENTS.md), under Rules. This file owns the project's branching, commit, PR, and merge conventions.
 
-*Fill each section with this project's conventions. Keep examples only as a guide while editing, then delete them. Remove sections that do not apply.*
+*This template becomes `agent-docs/GIT.md`; its links resolve from there. Fill each section with this project's conventions. Keep examples only as a guide while editing, then delete them. Remove sections that do not apply.*
 
 ## Branches
 

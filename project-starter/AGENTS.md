@@ -1,6 +1,6 @@
 # Project guidance
 
-When customizing this file, read the [AGENTS.md template](https://github.com/john-ezra/null-stack/blob/main/templates/project/AGENTS.md), source `templates/project/AGENTS.md` in the Null Stack checkout. Its annotations and examples explain what belongs in each section. Unfilled sections mean the information is not recorded here, not that setup must finish before work can begin. Use repository evidence when the task needs those facts.
+When customizing this file, read the [AGENTS.md template](https://github.com/john-ezra/null-stack/blob/main/templates/AGENTS.md), source `templates/AGENTS.md` in the Null Stack checkout. Its annotations and examples explain what belongs in each section. Unfilled sections mean the information is not recorded here, not that setup must finish before work can begin. Use repository evidence when the task needs those facts.
 
 ## Project name and purpose
 
@@ -15,6 +15,10 @@ When customizing this file, read the [AGENTS.md template](https://github.com/joh
 Read the repository's maintained documentation, manifests, configuration, and affected source before choosing tools or changing code. Use them to identify the stack, package manager, architecture, and commands. Do not assume a language, runtime, service, or command from these guides.
 
 Use the existing command definitions and CI configuration for build, test, lint, and formatting commands. If the repository provides no command for a needed check, choose a check supported by its actual tools and explain any verification gap.
+
+## Development process
+
+Read the [development policy](agent-docs/DEVELOPMENT.md) for the lifecycle, artifact homes, and approval rules. Two task workflows exist, [fix-bug](workflows/fix-bug/SKILL.md) and [add-feature](workflows/add-feature/SKILL.md). Run one only on explicit request; project guidance and individual skills remain usable without them.
 
 ## Agent docs
 
