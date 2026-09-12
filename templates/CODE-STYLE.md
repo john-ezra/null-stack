@@ -3,7 +3,7 @@
 - A comment earns its place only by stating what the code cannot: a real constraint or a non-obvious why.
 - Never: design essays, per-field commentary, or justifying choices recorded elsewhere.
 
-*Fill the sections below with language-bound conventions for this repo. Name exceptions to existing tooling or language norms, rather than restating both. Delete the editing instructions and examples when filled. Replace these sections if the stack changes.*
+*This template becomes `agent-docs/CODE-STYLE.md`. Fill the sections below with language-bound conventions for this repo. Name exceptions to existing tooling or language norms, rather than restating both. Delete the editing instructions and examples when filled. Replace these sections if the stack changes.*
 
 ## Code conventions
 

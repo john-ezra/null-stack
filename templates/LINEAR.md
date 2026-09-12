@@ -1,10 +1,10 @@
 # Linear context
 ---
-This file identifies the project's Linear workspace and team and records project-specific constraints. For Linear commands, read the `linear-cli` skill for CLI mechanics. Artifact formats belong to their owning skills. For artifact placement and state transitions, read the [development lifecycle](DEVELOPMENT.md); its policies apply only if adopted.
+This file identifies the project's Linear workspace and team and records project-specific constraints. For Linear commands, read the `linear-cli` skill for CLI mechanics. Artifact formats belong to their owning skills. For artifact placement and state transitions, read the [development policy](DEVELOPMENT.md); its policies apply only if adopted.
 
 Before accessing project records, resolve the workspace and team from the bindings below. An authenticated account or CLI default is not evidence that it is the right destination. If a needed binding is missing or ambiguous, ask the user before accessing that destination. Authorization for writes lives in [AGENTS.md](../AGENTS.md), under Rules.
 
-*Fill this guide with confirmed project facts. Italic text is an editing instruction; fenced blocks labeled "Example:" use invented names and are not configuration. Replace the instructions and remove the examples when filled. Do not put credentials or tokens in this file.*
+*This template becomes `agent-docs/LINEAR.md`; its links resolve from there. Fill this guide with confirmed project facts. Italic text is an editing instruction; fenced blocks labeled "Example:" use invented names and are not configuration. Replace the instructions and remove the examples when filled. Do not put credentials or tokens in this file.*
 
 ## Project bindings
 
@@ -23,6 +23,14 @@ Workspace: Example Company, slug example-company.
 Team: Application, key APP.
 Project selection: No default project; resolve per request.
 Initiative association: None.
+```
+
+## Write permission
+
+*State which tracker writes a request authorizes on its own and which need explicit authorization. Name the exact issue states a pickup and a completion move to, using the team's existing state names; do not rename or create states to fit this template. Keep the rule that questions and inspection requests are read-only.*
+
+```
+Example: A request to work on a named issue authorizes moving it to In Progress at pickup and to Done once its acceptance criteria are verified and any required merge has succeeded. Every other write, including project status, relations, and comments, needs authorization in the request. Approval of content is not permission to publish it or change tracker state.
 ```
 
 ## Project constraints
