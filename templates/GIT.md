@@ -14,10 +14,10 @@ Example: This workspace is the private repository; the code is a submodule at `a
 
 ## Branches
 
-*Name the base branch, branch naming pattern, and any release or maintenance branches. Say whether branch names include tracker IDs; do not require a tracker merely to fill this template.*
+*Name the default branch for each repository explicitly, such as `main` or `master`, along with the branch naming pattern and any release or maintenance branches. For new repositories, say to create the default branch before creating a task branch. Say whether branch names include tracker IDs; do not require a tracker merely to fill this template.*
 
 ```
-Example: Branch from main. Use <kind>/<short-kebab-case-description> with feat, fix, docs, refactor, or chore. Keep tracker IDs out of branch names.
+Example: Use main as the default branch for new repositories and create it before creating any task branch. For existing repositories, use the default branch recorded in repository configuration or hosting metadata, such as master; if unclear, ask the user. Do not infer the default from the current or first-created branch. Branch from the default. Use <kind>/<short-kebab-case-description> with feat, fix, docs, refactor, or chore. Keep tracker IDs out of branch names.
 ```
 
 ## Worktrees
@@ -41,7 +41,7 @@ Example: Write a plain imperative subject without a type prefix, 72 characters m
 *Give the target branch, scope, required review and checks, merge method, whether the merge deletes the branch, and any release requirements. These conventions describe how authorized publication works; they do not authorize it.*
 
 ```
-Example: Target main. Use one issue per PR when work has an issue; otherwise keep the PR focused on one change. Require one approval and passing CI, then squash-merge and delete the branch locally and remotely in the same action.
+Example: Target the repository's default branch. Use one issue per PR when work has an issue; otherwise keep the PR focused on one change. Require one approval and passing CI, then squash-merge and delete the branch locally and remotely in the same action.
 ```
 
 ## Branch cleanup

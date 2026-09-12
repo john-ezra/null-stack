@@ -16,7 +16,9 @@ After a workspace update, `git submodule update --init --recursive` from the wor
 
 Use a short-lived branch for every change, including routine maintenance and documentation-only work. Create or select the task's branch before the first repository edit; never edit on the default branch.
 
-Identify the default branch from repository configuration or hosting metadata. If it remains unclear, resolve it with the user before branching or choosing a PR target. Start new task branches from their intended target, normally the default branch.
+Use `main` as the default branch when initializing either repository, and create it before creating any task branch.
+
+For an existing repository, identify the default branch from repository configuration or hosting metadata, preserving names such as `master`. Do not infer the default from the current or first-created branch. If it remains unclear, resolve it with the user before branching or choosing a PR target. Start new task branches from their intended target, normally the default branch.
 
 Name branches `<kind>/<short-kebab-case-description>`, using `feat`, `fix`, `docs`, `refactor`, or `chore`. Keep tracker associations in the tracker rather than in branch names.
 
