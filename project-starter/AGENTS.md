@@ -41,7 +41,7 @@ One home per kind of information; a fact lives in its home, everywhere else poin
 ## Rules
 
 - Change files only within the user's authorized scope. Approval of a proposal's content alone is not permission to edit files, execute it, or publish it.
-- Commit, push, amend, open or update a PR, or merge only when explicitly asked. Never work directly on the repository's default branch; use a feature or fix branch first. Stage exact paths only, never all changes with `git add -A`, `git add .`, or `git commit -a`.
+- Follow the [Git publication policy](agent-docs/GIT.md#publication) before handing back completed work. Never work directly on the repository's default branch; use a feature or fix branch first. Stage exact paths only, never all changes with `git add -A`, `git add .`, or `git commit -a`.
 - Preserve unrelated work and private files. Deletion or history rewriting requires explicit permission.
 - Create, update, move, or comment on Linear records only when explicitly asked. Approval of content is not permission to publish it or change tracker state.
 - Repository edits do not authorize installation, live configuration changes, releases, or deployment. Resolve missing permission before taking those actions.
