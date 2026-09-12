@@ -49,7 +49,7 @@ Use `pr` for titles, bodies, and delivery evidence. A PR must make sense without
 
 Honor the repository's required reviews and checks. Verify their results before merging; do not bypass protection rules or claim approval or passing checks without evidence.
 
-When the user authorizes a merge, squash merge and delete the task branch locally and remotely in the same action; on GitHub that is `gh pr merge --squash --delete-branch`. At that moment the branch tip is the merged head, so no separate cleanup check is needed. Use another merge method only on explicit request. If repository policy disallows squash merging, resolve that with the user rather than changing settings or silently choosing another method.
+When the user authorizes a merge, squash merge and delete the task branch remotely and locally as part of the merge. On GitHub, run `gh pr merge --squash --delete-branch`, then switch the checkout to the default branch, fast-forward it, and delete the local task branch with `git branch -D` if it still exists; `gh` skips the local delete when it cannot switch the checkout, as in a submodule checkout, and says so. No separate check is needed, because at that moment the branch tip is the merged head. Use another merge method only on explicit request. If repository policy disallows squash merging, resolve that with the user rather than changing settings or silently choosing another method.
 
 ## Branch cleanup
 
