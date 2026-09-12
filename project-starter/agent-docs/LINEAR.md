@@ -23,6 +23,8 @@ Read the current target before changing it. A request to start, pick up, or work
 
 Use the team's exact existing state names. `In Progress` and `Done` are Linear's defaults; a team that renames them takes its own names.
 
+After a PR merges into its intended target branch, update existing Linear artifact links affected by that PR without asking again, including links in previously completed records. Replace links only after the new targets are published and verified. This permission covers link repairs, not new records, new comments, or unrelated content or metadata changes.
+
 Questions about an issue and requests only to inspect it are read-only. Every other write, including project-status changes, relations, and comments, requires authorization in the user's request. Approval of content is not permission to publish it or change tracker state. Follow [project write restrictions](../AGENTS.md#rules).
 
 ## Constraints

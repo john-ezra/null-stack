@@ -30,7 +30,11 @@ Initiative association: None.
 *State which tracker writes a request authorizes on its own and which need explicit authorization. Name the exact issue states a pickup and a completion move to, using the team's existing state names; do not rename or create states to fit this template. Keep the rule that questions and inspection requests are read-only.*
 
 ```
-Example: A request to work on a named issue authorizes moving it to In Progress at pickup and to Done once its acceptance criteria are verified and any required merge has succeeded. Every other write, including project status, relations, and comments, needs authorization in the request. Approval of content is not permission to publish it or change tracker state.
+Example: A request to work on a named issue authorizes moving it to In Progress at pickup and to Done once its acceptance criteria are verified and any required merge has succeeded.
+
+After a PR merges into its intended target branch, update existing Linear artifact links affected by that PR without asking again, including links in previously completed records. Replace links only after the new targets are published and verified. This permission covers link repairs, not new records, new comments, or unrelated content or metadata changes.
+
+Every other write, including project status, relations, and comments, needs authorization in the request. Approval of content is not permission to publish it or change tracker state.
 ```
 
 ## Project constraints
