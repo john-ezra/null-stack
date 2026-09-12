@@ -1,6 +1,14 @@
 # Git conventions
 
-The hard guardrails live in [AGENTS.md under Rules](../AGENTS.md#rules). This file owns repository layout, branching, worktree, commit, PR, and merge conventions; it grants no permission to publish.
+The hard guardrails live in [AGENTS.md under Rules](../AGENTS.md#rules). This file owns repository layout, branching, worktree, commit, PR, and merge conventions, including publication permission.
+
+## Publication
+
+Commit and push each completed, verified change on its task branch without asking again, even when the issue still has work remaining. Include only the authorized change, not unfinished or unrelated work.
+
+Open a ready-for-review PR once the issue's implementation, verification, and required documentation are complete, or update the existing PR for that work. Do not wait for the issue to reach Done or for another publication request. For work without an issue, use completion of the full requested scope as the trigger. Follow the [two-repository publication order](#repositories) for work spanning both repositories.
+
+Merging, amending commits, rebasing, and force-pushing still require explicit approval. A request to keep work local or defer publication overrides these defaults. If verification or publication is blocked, preserve the work and report the blocker rather than claiming completion.
 
 ## Repositories
 

@@ -70,7 +70,7 @@ One home per kind of information; a fact lives in its home, everywhere else poin
 ---
 A rule lives here only if no event can trigger reading it, or violating it is hard to reverse; everything else belongs in a file above.
 
-- Git: commit, push, or amend only when explicitly asked; never work directly on main; feature-branch first; `git add` exact paths only, never `-A` or `-a`.
+- Git: follow [Git conventions](agent-docs/GIT.md#publication) for publication permission before handing back completed work. Without a recorded policy, commit, push, or open or update a PR only when explicitly asked. Never work directly on the default branch; use a task branch first. Stage exact paths only, never `git add -A`, `git add .`, or `git commit -a`.
 - Linear: create, update, move, or comment on records only when explicitly asked. Approval of content is not permission to publish it or change tracker state.
 
 *Add the project's ambient prohibitions: rules with no trigger moment that must hold on every line of output: vocabulary bans, cleanroom constraints, forbidden targets.*

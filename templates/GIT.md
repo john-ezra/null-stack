@@ -1,8 +1,16 @@
 # Git conventions
 ---
-The hard guardrails live in [AGENTS.md](../AGENTS.md), under Rules. This file owns the project's repository layout, branching, worktree, commit, PR, and merge conventions.
+The hard guardrails live in [AGENTS.md](../AGENTS.md), under Rules. This file owns the project's repository layout, branching, worktree, commit, PR, and merge conventions, including publication permission.
 
 *This template becomes `agent-docs/GIT.md`; its links resolve from there. Fill each section with this project's conventions. Keep examples only as a guide while editing, then delete them. Remove sections that do not apply.*
+
+## Publication
+
+*State when completed work must be committed and pushed, when to open or update a PR, and which operations still need explicit approval. Distinguish a verified change from a finished issue, cover work without an issue, and say how a request to defer publication overrides the default.*
+
+```
+Example: Commit and push each completed, verified change on its task branch without asking again, even while the issue has work remaining. Open or update a ready-for-review PR once the issue's implementation, verification, and documentation are complete; do not wait for Done. Without an issue, use completion of the full requested scope. Merging, amending, rebasing, and force-pushing require explicit approval. Honor requests to keep work local or defer publication. If verification or publication is blocked, preserve the work and report the blocker.
+```
 
 ## Repositories
 
@@ -38,7 +46,7 @@ Example: Write a plain imperative subject without a type prefix, 72 characters m
 
 ## Pull requests and merges
 
-*Give the target branch, scope, required review and checks, merge method, whether the merge deletes the branch, and any release requirements. These conventions describe how authorized publication works; they do not authorize it.*
+*Give the target branch, scope, required review and checks, merge method, whether the merge deletes the branch, and any release requirements. Keep publication triggers and permissions in Publication above.*
 
 ```
 Example: Target the repository's default branch. Use one issue per PR when work has an issue; otherwise keep the PR focused on one change. Require one approval and passing CI, then squash-merge and delete the branch locally and remotely in the same action.
