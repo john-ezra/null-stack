@@ -37,9 +37,9 @@ Example:
 
 | Artifact | Active directory | Archive directory |
 |---|---|---|
-| Intent | `agent-docs/ephemera/intents/` | `agent-docs/archive/<outcome>/intents/` |
-| Spec | `agent-docs/ephemera/specs/` | `agent-docs/archive/<outcome>/specs/` |
-| Plan | `agent-docs/ephemera/plans/` | `agent-docs/archive/<outcome>/plans/` |
+| Intent | `agent-docs/ephemera/intents/` | `agent-docs/ephemera/archive/<outcome>/intents/` |
+| Spec | `agent-docs/ephemera/specs/` | `agent-docs/ephemera/archive/<outcome>/specs/` |
+| Plan | `agent-docs/ephemera/plans/` | `agent-docs/ephemera/archive/<outcome>/plans/` |
 
 Outcomes are completed, canceled, or superseded. Linear records link to these files rather than hold copies.
 ```
