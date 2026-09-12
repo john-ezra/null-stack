@@ -63,7 +63,7 @@ Archive a spec and its plans at issue closeout and the intent at project closeou
 3. Update the corresponding Linear links to the archived paths and verify they resolve.
 4. Apply only the authorized Linear state change, using the actual outcome rather than treating canceled or superseded work as completed.
 
-Closeout is incomplete while publication, link updates, or verification remain outstanding. Use `pr` for merge evidence and closeout records.
+Closeout is incomplete while publication, link updates, or verification remain outstanding. Use `pr` for merge evidence and closeout records. After closeout succeeds, follow [branch cleanup](GIT.md#branch-cleanup) and report any cleanup left pending.
 
 ## Existing boundaries
 

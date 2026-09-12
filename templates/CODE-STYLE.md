@@ -13,7 +13,7 @@
 Example: In TypeScript, do not introduce `any`. Use a concrete type, or use `unknown` and narrow it before accessing its value.
 ```
 
-## Documentation
+## Comments and documentation
 
 *Name the reference documentation and which declarations need it. Cover godoc, JSDoc, or docstrings as applicable.*
 
@@ -27,6 +27,14 @@ Example: Godoc is the reference documentation: every package opens with a packag
 
 ```
 Example: Use customer for the billing account and user for an individual login. Keep those names distinct in identifiers and docs.
+```
+
+## Markdown and prose
+
+*Record the Markdown flavor, link style, wrapping rule, and any prose conventions or skills the project applies to documents and agent-facing instructions.*
+
+```
+Example: GitHub-flavored Markdown with relative links; no wiki links or editor-specific embeds. Do not manually wrap paragraphs. Never use em dashes. Use natural-english when revising prose.
 ```
 
 ## Formatting
