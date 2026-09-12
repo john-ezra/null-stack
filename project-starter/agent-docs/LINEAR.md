@@ -2,6 +2,10 @@
 
 Read this guide before reading or writing Linear records for this project. It records the project's bindings and constraints. The `linear-cli` skill owns CLI mechanics, and the [development policy](DEVELOPMENT.md) owns artifact placement and lifecycle transitions.
 
+## Two repositories
+
+The Linear CLI reads its pin, `.linear.toml`, from the workspace root when one exists. Run Linear commands from the workspace root, and pass the workspace and team explicitly when a command must run from the project checkout. Do not copy the pin or this guide into the project repository.
+
 ## Project bindings
 
 | Binding | Project value |

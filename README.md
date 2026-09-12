@@ -7,12 +7,12 @@ A collection of agent skills, the copy-ready Project Starter, and authoring temp
 | Location | Purpose |
 | --- | --- |
 | [skills/](skills/) | Standalone capabilities, with a root `SKILL.md` and supporting documents under each skill's `resources/` directory |
-| [project-starter/](project-starter/) | Opinionated, copy-ready project guidance with a finite-effort lifecycle, Linear conventions, and two task workflows; project-specific facts stay empty |
+| [project-starter/](project-starter/) | Opinionated, copy-ready guidance for a private workspace that holds the project's code as a Git submodule, with a finite-effort lifecycle, Linear conventions, and two task workflows; project-specific facts stay empty |
 | [templates/AGENTS.md](templates/AGENTS.md) | Project overview template with section instructions, examples, the guide table, rules, and how-to-use steps; becomes the project's `AGENTS.md` |
 | [templates/PROJECT-OUTLINE.md](templates/PROJECT-OUTLINE.md) | Template for the project's purpose, audience, capabilities, and scope; becomes `agent-docs/PROJECT-OUTLINE.md` |
 | [templates/CODE-STYLE.md](templates/CODE-STYLE.md) | Template for code conventions, documentation, naming, Markdown and prose, and formatting; becomes `agent-docs/CODE-STYLE.md` |
 | [templates/DEVELOPMENT.md](templates/DEVELOPMENT.md) | Blank lifecycle policy with per-section instructions, examples, and a no-lifecycle option; becomes `agent-docs/DEVELOPMENT.md` |
-| [templates/GIT.md](templates/GIT.md) | Template for branching, commits, pull requests and merges, and branch cleanup; becomes `agent-docs/GIT.md` |
+| [templates/GIT.md](templates/GIT.md) | Template for repositories, branching, worktrees, commits, pull requests and merges, and branch cleanup; becomes `agent-docs/GIT.md` |
 | [templates/LINEAR.md](templates/LINEAR.md) | Template for Linear bindings, write permission, and project constraints; becomes `agent-docs/LINEAR.md` |
 | [templates/WORKFLOW.md](templates/WORKFLOW.md) | Authoring steps and one generic fenced block for a task workflow; the block becomes `workflows/<name>/SKILL.md` |
 
@@ -53,10 +53,19 @@ For example, [software-design/resources/DEEPENING.md](skills/software-design/res
 
 ## Start a project
 
-Copy the contents of [project-starter/](project-starter/) into the destination project without overwriting existing guidance. Include the entire `agent-docs/` directory, including `PROJECT-OUTLINE.md`, `research/`, and `design-decisions/`, and the `workflows/` directory. Preserve the toolkit's [license notice](#license) without replacing the destination project's license. For an existing project, reconcile its current instructions before adopting the starter.
+Project Starter seeds a private workspace repository that holds the project's code as a Git submodule. The workspace keeps agent guidance, agent docs, workflows, tracker configuration, and worktrees, with its own history; the project repository keeps the code and its pull requests, with no agent material, and can be public or private.
+
+Create the workspace repository and copy the contents of [project-starter/](project-starter/) into it, including the `.gitignore` and the entire `agent-docs/` and `workflows/` directories, without overwriting existing guidance. Then add the project repository as a submodule:
+
+```sh
+git submodule add <project-url> <project>
+```
+
+Preserve the toolkit's [license notice](#license) without replacing either repository's license. For an existing project, reconcile its current instructions before adopting the starter. Start agent sessions at the workspace root so the agent loads the workspace's `AGENTS.md`.
 
 ```text
-project/
+<project>-workspace/
+  .gitignore
   AGENTS.md
   agent-docs/
     PROJECT-OUTLINE.md
@@ -73,9 +82,10 @@ project/
       SKILL.md
     add-feature/
       SKILL.md
+  <project>/
 ```
 
-The starter's `AGENTS.md` keeps empty sections for the project name and purpose, tech stack, commands, and project structure. The [project outline](project-starter/agent-docs/PROJECT-OUTLINE.md) holds the fuller project description, with empty sections for purpose, audience, capabilities, and scope. Fill them with confirmed facts when customizing; leaving them empty does not block ordinary work. The operating defaults, guide pointers, and permission rules are already filled in. The [Git conventions](project-starter/agent-docs/GIT.md) select kind-prefixed task branches, plain imperative commit subjects, squash merges, and branch cleanup after closeout; the [code style](project-starter/agent-docs/CODE-STYLE.md) follows the consuming repository's tooling and sets Markdown and prose rules; design-decision rules and format stay local. It selects the finite-effort lifecycle in [agent-docs/DEVELOPMENT.md](project-starter/agent-docs/DEVELOPMENT.md), keeps Linear conventions in [agent-docs/LINEAR.md](project-starter/agent-docs/LINEAR.md) with an empty bindings table for the project to fill, and ships two task workflows, [fix-bug](project-starter/workflows/fix-bug/SKILL.md) and [add-feature](project-starter/workflows/add-feature/SKILL.md), which run only on explicit request.
+The starter's `AGENTS.md` keeps empty sections for the project name and purpose, tech stack, commands, and project structure. The [project outline](project-starter/agent-docs/PROJECT-OUTLINE.md) holds the fuller project description, with empty sections for purpose, audience, capabilities, and scope. Fill them with confirmed facts when customizing; leaving them empty does not block ordinary work. The operating defaults, guide pointers, and permission rules are already filled in. The [Git conventions](project-starter/agent-docs/GIT.md) select the two-repository layout and its publication order, kind-prefixed task branches, worktrees under `.worktrees/` at the workspace root, plain imperative commit subjects, squash merges, and worktree and branch cleanup after closeout; the [code style](project-starter/agent-docs/CODE-STYLE.md) follows the consuming repository's tooling and sets Markdown and prose rules; design-decision rules and format stay local. It selects the finite-effort lifecycle in [agent-docs/DEVELOPMENT.md](project-starter/agent-docs/DEVELOPMENT.md), keeps Linear conventions in [agent-docs/LINEAR.md](project-starter/agent-docs/LINEAR.md) with an empty bindings table for the project to fill, and ships two task workflows, [fix-bug](project-starter/workflows/fix-bug/SKILL.md) and [add-feature](project-starter/workflows/add-feature/SKILL.md), which run only on explicit request.
 
 Keep research reports in [agent-docs/research/](project-starter/agent-docs/research/README.md). Its guide explains where to save reports and when to consult them. Research holds findings and supporting sources; accepted decisions and their rationale belong in `design-decisions/` under its guide's rules. The project outline stays separate from task-specific goals, requirements, and plans when those artifacts are used.
 
