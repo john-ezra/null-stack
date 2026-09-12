@@ -38,16 +38,16 @@ Example: Write a plain imperative subject without a type prefix, 72 characters m
 
 ## Pull requests and merges
 
-*Give the target branch, scope, required review and checks, merge method, and any release requirements. These conventions describe how authorized publication works; they do not authorize it.*
+*Give the target branch, scope, required review and checks, merge method, whether the merge deletes the branch, and any release requirements. These conventions describe how authorized publication works; they do not authorize it.*
 
 ```
-Example: Target main. Use one issue per PR when work has an issue; otherwise keep the PR focused on one change. Require one approval and passing CI, then squash-merge.
+Example: Target main. Use one issue per PR when work has an issue; otherwise keep the PR focused on one change. Require one approval and passing CI, then squash-merge and delete the branch locally and remotely in the same action.
 ```
 
 ## Branch cleanup
 
-*Say whether the task's worktrees and merged branches are removed after closeout without a separate request, and what must be confirmed first. If the project keeps branches, say so and remove the checks.*
+*Say what cleanup remains after the merge, such as the task's worktrees and any branch a merge left behind, whether it happens without a separate request, and what must be confirmed first. If the project keeps branches, say so and remove the checks.*
 
 ```
-Example: After an authorized closeout, remove the task's worktrees and delete its merged branches locally and remotely. Confirm the PR merge, a clean working tree, no unpushed work, and that the branch tip matches the merged PR head before deleting. Never delete the default branch or unrelated branches.
+Example: After an authorized closeout, remove the task's worktrees and delete any of its merged branches the merge left behind, locally and remotely. Confirm the PR merge, a clean working tree, no unpushed work, and that the branch tip matches the merged PR head before deleting; a squash-merged branch needs `git branch -D`. Never delete the default branch or unrelated branches.
 ```

@@ -49,10 +49,10 @@ Use `pr` for titles, bodies, and delivery evidence. A PR must make sense without
 
 Honor the repository's required reviews and checks. Verify their results before merging; do not bypass protection rules or claim approval or passing checks without evidence.
 
-When the user authorizes a merge, use squash merge. Use another method only on explicit request. If repository policy disallows squash merging, resolve that with the user rather than changing settings or silently choosing another method.
+When the user authorizes a merge, squash merge and delete the task branch locally and remotely in the same action; on GitHub that is `gh pr merge --squash --delete-branch`. At that moment the branch tip is the merged head, so no separate cleanup check is needed. Use another merge method only on explicit request. If repository policy disallows squash merging, resolve that with the user rather than changing settings or silently choosing another method.
 
 ## Branch cleanup
 
-Successful authorized closeout includes removing the task's worktrees and deleting its merged branches locally and remotely, without a separate deletion request. This standing permission covers only that task's worktrees and branches, never the main checkouts, the default branch, or unrelated ones.
+The merge deletes the task branch. This section covers what it cannot: the task's worktrees, and a merged branch found afterwards, from a merge made without deleting it or an earlier session. Successful authorized closeout includes removing those locally and remotely, without a separate deletion request. This standing permission covers only that task's worktrees and branches, never the main checkouts, the default branch, or unrelated ones.
 
-Before deletion, confirm the actual PR merge, a clean working tree, no unpushed work, and no commits added to the branch after the revision that was merged. For squash merges, compare the branch tip with the confirmed PR head rather than relying on commit ancestry. If any check fails, preserve the worktree and branch and report the pending cleanup.
+Before deleting a branch after the fact, confirm the actual PR merge, a clean working tree, no unpushed work, and no commits added to the branch after the revision that was merged. For squash merges, compare the branch tip with the confirmed PR head rather than relying on commit ancestry; `git branch -d` refuses a squash-merged branch, so use `-D` once the tip matches. If any check fails, preserve the worktree and branch and report the pending cleanup.
