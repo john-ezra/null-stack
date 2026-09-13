@@ -2,7 +2,7 @@
 ---
 This file is the project's lifecycle policy. Skills own their procedures and artifact formats; this guide owns entry thresholds, artifact homes, approval and write rules, tracker mapping, and completion. Reading it authorizes no execution or publication.
 
-*This template becomes `agent-docs/DEVELOPMENT.md`; its links resolve from there. Fill each section with explicit project choices, or replace the whole file with the no-lifecycle block at the end. Project Starter's `agent-docs/DEVELOPMENT.md` is a filled example of this document, a finite-effort policy with Linear. Confirm every choice before adopting it; copying an example does not adopt it.*
+*This template becomes `agent-docs/DEVELOPMENT.md`; its links resolve from there. Fill each section with explicit project choices, or replace the whole file with the no-lifecycle block at the end. Confirm every choice before adopting it; copying an example does not adopt it.*
 
 *Keep Git choices in [GIT.md](GIT.md), Linear bindings in [LINEAR.md](LINEAR.md), and lasting-decision rules in [design-decisions/README.md](design-decisions/README.md). Resolve conflicts with [project write restrictions](../AGENTS.md#rules) rather than repeating or weakening them. Delete the editing instructions and examples when filled. The finished guide is usually 400-700 words; policy complexity, not a word quota, decides.*
 
@@ -65,7 +65,7 @@ Example: An issue closes when its acceptance criteria are verified and any requi
 *Point to the guides this policy defers to. Keep only pointers here.*
 
 ```
-Example: Follow [project write restrictions](../AGENTS.md#rules) and [Linear write permission](LINEAR.md#linear-write-permission). Before Git or PR work, read [Git conventions](GIT.md). Before designing, changing, or reviewing an area, read [design decisions](design-decisions/README.md).
+Example: Follow [project write restrictions](../AGENTS.md#rules) and [Linear write permission](LINEAR.md#write-permission). Before Git or PR work, read [Git conventions](GIT.md). Before designing, changing, or reviewing an area, read [design decisions](design-decisions/README.md).
 ```
 
 ## Option: no lifecycle
