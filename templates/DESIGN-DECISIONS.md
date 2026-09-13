@@ -1,6 +1,8 @@
 # Design decisions
 ---
 
+*Copy this template to `agent-docs/design-decisions/README.md`. Keep the rules and record format below unless the project differs. If you change the record location or the project's approval and write rules, make those choices explicit and update affected pointers. Remove this editing instruction from the finished guide; retain the fenced record format for creating future records.*
+
 Project design-decision records live beside this guide at `agent-docs/design-decisions/<SLUG>.md`, relative to the project root.
 
 This guide owns the project's record selection, evidence, approval and write permissions, format, and revision rules. It requires no installed skill, workflow, tracker, or harness-specific resource resolver.
