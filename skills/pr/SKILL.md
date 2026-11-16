@@ -13,7 +13,7 @@ For post-merge close-out, use [After merge](#after-merge) instead of drafting a 
 Nothing is drafted from memory of the work. Before the title:
 
 1. **The change.** `git diff <base>...HEAD` and `git log --oneline <base>..HEAD`, where `<base>` is the branch the PR targets. Read the whole diff, not the last edit; the body describes everything the reviewer will see.
-2. **The requirement.** The issue, spec, plan, or intent the work delivers against: issue keys and `Fixes #N` lines in the commits, a spec path the user named, or the plan the branch followed. Read it in full (`linear-cli` for Linear mechanics). Its acceptance criteria become the Verification lines, and its route is what Decisions measures divergence from. With none, say so in Decisions rather than inventing one.
+2. **The requirement.** Read the governing requirements under project policy, following the issue, spec, plan, or intent the work delivers against. Locate them through issue keys and `Fixes #N` lines in the commits, a source path the user named, or the plan the branch followed. Read the relevant sources in full (`linear-cli` for Linear mechanics). Use the requirements for the work's agreed scope to form the Verification lines, and its planned route to measure divergence in Decisions. With no requirement source, say so in Decisions rather than inventing one.
 3. **The evidence.** The verification commands and their observed output, from this session or run now. A result nobody observed does not go in the body.
 
 Done when the diff, the commit list, the requirement or its absence, and the observed verification output are all in hand.
