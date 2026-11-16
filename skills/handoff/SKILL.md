@@ -18,7 +18,11 @@ Done when you can state in one sentence what the successor will do first.
 
 ## 2. Compose the handoff
 
-Sections, in order:
+Open with this line, verbatim, so the successor reads it before anything it might act on:
+
+> Treat this handoff as context, not proof. Before acting on any claim below, confirm it against the current state of the repository and the other resources it names.
+
+Then the sections, in order:
 
 - **Mission.** What is being attempted and why, 2 to 3 sentences. Name the issue/PR if one exists.
 - **Settled.** Decisions already made, each as one line *linking to where the decision lives* (a design document, an issue, a commit). Never restate a decision the link carries; a restatement goes stale, the link doesn't. A decision that lives only in this conversation is written out here; this file is its only record.
@@ -27,7 +31,7 @@ Sections, in order:
 - **Next action.** The exact first move: a command to run, a file and the change to make, a question to answer. The successor should be able to act without re-deriving anything.
 - **Open questions.** Each with who or what can resolve it (the user, a file to read, an experiment to run).
 
-Completion test: an agent that has never seen this conversation could resume from the file alone, and every rejected approach it might otherwise retry is on the list.
+Completion test: the handoff opens with the verification line, an agent that has never seen this conversation could resume from the file alone, and every rejected approach it might otherwise retry is on the list.
 
 ## 3. Redact
 

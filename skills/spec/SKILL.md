@@ -4,7 +4,7 @@ description: Write specs from an intent or an approved standalone report or requ
 disable-model-invocation: false
 ---
 
-Use this skill when an intent is ready to slice or re-slice, an approved standalone report or requirement needs a spec, existing specs need splitting, merging, re-scoping, or killing before pickup, or picked-up requirements need a scope decision. Write thin, session-sized **specs** from that source: what each slice delivers plus its acceptance criteria, nothing more. How a slice gets built is not decided here.
+Use this skill when an intent is ready to slice or re-slice, an approved standalone report or requirement needs a spec, existing specs need splitting, merging, re-scoping, or killing before pickup, or picked-up requirements need a scope decision. Write **specs** from that source: what each slice delivers plus its acceptance criteria, nothing more. How a slice gets built is not decided here.
 
 For a spec already picked up, use [After pickup](#after-pickup) instead of re-slicing its approved contract in place.
 
@@ -14,15 +14,19 @@ For intent-backed work, read the intent, especially Stop criteria, Constraints &
 
 For standalone work, read the bug report, GitHub issue, or explicit requirement. Establish the expected result, constraints, exclusions, and unresolved questions from that source and the relevant existing work. Use the user's approval when already explicit; otherwise confirm the source requirement with them before slicing. A standalone spec needs neither an intent nor a project.
 
+Read the project's requirement-ownership policy when one exists. If maintained guidance owns requirements, follow the originating intent, report, or issue to that guidance and use it to define the slice. Follow the policy for recording newly approved requirements and resolving conflicts; approval of a working spec does not replace that record.
+
 Done when the source is identified, its requirements are clear enough to slice, and you can name the **frontier**: the work whose blockers are done or absent.
 
 ## 2. Slice the frontier
 
-Cut the frontier into **vertical slices**: each spec delivers a narrow but complete, independently verifiable path through the work, never a horizontal layer ("all the models", "all the endpoints") that proves nothing on its own. Size each slice to one session: one agent can plan, build, and verify it without a handoff. One task per slice: if the title needs an "and", it is two slices.
+Prefer **vertical slices**: each spec delivers a narrow but complete, independently verifiable path through the work. Aim for one session of planning, implementation, and verification. Split independently deliverable outcomes instead of bundling them.
+
+When dependencies or verification constraints require a larger coordinated change, a spec may span multiple stages or sessions. Explain the constraint alongside the proposed breakdown and keep acceptance criteria tied to the final observable outcome. Do not label disconnected scaffolding or a passing intermediate check as a completed deliverable. `plan` owns the staged implementation and verification route when one is needed.
 
 Decomposition is progressive. Slice finely only at the frontier; leave work behind unfinished blockers as coarse placeholders, a title and a sentence, until the frontier reaches it. An open question in the source blocks the same way: work that depends on its answer stays a placeholder, and the question is answered when the frontier reaches it, not before. Returning to re-slice as work lands is the mechanism working, not a planning failure. Until a spec is picked up, it is malleable: split, merge, re-scope, or kill freely.
 
-Done when every piece of the frontier sits in exactly one slice, each slice is vertical and session-sized, and everything behind an unfinished blocker is a placeholder.
+Done when every piece of the frontier sits in exactly one spec, each spec is a session-sized vertical slice or a justified larger coordinated change, and everything behind an unfinished blocker is a placeholder.
 
 ## 3. Reconcile the blocking order
 
@@ -40,7 +44,7 @@ Present the proposed breakdown to the user. Per spec: **title · what blocks it 
 
 ### Source provenance
 
-Keep a `Source:` link or reference in the spec body by default. Standalone reports and requirements always keep that reference, even when the spec belongs to a project.
+Keep a `Source:` link or reference in the spec body by default. Standalone reports and requirements always keep that reference, even when the spec belongs to a project. When project policy makes maintained guidance authoritative, also reference the relevant sections and approved revisions there; an intake reference alone does not identify the governing requirements.
 
 Only intent-backed work under an explicitly adopted project policy may omit the line, and only when that policy designates the spec's project association as its source reference. Before omitting it, follow that association to the intent and confirm it resolves to the intent used for the spec. Without that policy choice or a confirmed association, keep the explicit `Source:` reference. Selecting a workflow alone is not a source-provenance policy.
 
@@ -63,7 +67,7 @@ Source: <link or reference to the intent or approved standalone report or requir
 - <...>
 ```
 
-Present the completed specs for approval, including their acceptance criteria. Done when every approved frontier slice has a user-approved spec from the template, its source is explicit or confirmed under the rule above, every placeholder is still a title and a sentence, and the blocking order between them is stated once, outside the spec bodies. A spec body is the requirements contract for one slice; ordering does not belong in it.
+Present the completed specs for approval, including their acceptance criteria. Done when every approved frontier slice has a user-approved spec from the template, its source is explicit or confirmed under the rule above, every placeholder is still a title and a sentence, and the blocking order between them is stated once, outside the spec bodies. A spec records the agreed deliverables and acceptance criteria for one slice; ordering does not belong in it.
 
 Artifact approval is not publication permission. Use the destination authorized by the request or adopted project policy; without write permission, return the specs and blocking order in chat. For authorized Linear publication, use `linear-cli` for current-body replacement and relation reconciliation. It applies the approved graph; it does not decide the slices or grant permission to change their states. With another destination, preserve the same contracts without creating tracker records. Done publishing when every authorized artifact and dependency matches the approved set; report completed and outstanding writes separately after a partial failure.
 
@@ -74,7 +78,7 @@ Pickup freezes the approved requirements. Only a user scope decision can change 
 1. Read the approved spec, its source, and any earlier amendments. Name the affected deliverables and acceptance criteria, the proposed change, and its cause. If only the route changes, leave the spec alone and use `plan` for the route. If the proposal changes the source intent or requirement, settle that source change with the user too. Done when the difference between the approved contract and the proposal is explicit.
 2. Get the user's scope decision: retain the contract, amend the same slice, or replace it with different slices. Use an already explicit decision; otherwise present the proposal and wait. If the user declines or has not decided, keep the contract unchanged and report any criterion that cannot be met. Retaining the contract may include separately approved follow-on work, but moving an unmet original criterion into follow-on work requires an amendment or replacement. Done when the user has chosen the disposition.
 3. Prepare the chosen record:
-   - **Amend the same slice.** The amended slice must remain vertical and session-sized. Leave the original approved body and earlier amendments intact. Append `Amendment 1`, then `Amendment 2`, with a date, the reason, an explicit reference to the change's source, and the user's approval reference. State each added, removed, or replaced requirement, including the exact before-and-after wording for changes to existing deliverables or criteria. Unmentioned requirements still apply; later amendments override only the changes they name.
+   - **Amend the same slice.** Apply the [slicing and sizing rules](#2-slice-the-frontier) to the amended scope, including the exception for a justified larger change. Leave the original approved body and earlier amendments intact. Append `Amendment 1`, then `Amendment 2`, with a date, the reason, an explicit reference to the change's source, and the user's approval reference. State each added, removed, or replaced requirement, including the exact before-and-after wording for changes to existing deliverables or criteria. Unmentioned requirements still apply; later amendments override only the changes they name.
    - **Replace the slice.** Write replacement specs through the grounding, slicing, and approval sections above. Keep the original approved body and amendments, adding a dated supersession note that references the replacements, change source, and user approval. Each replacement references its predecessor and the change source. Keep the old requirements readable rather than overwriting them with the new slices.
    - **Keep the contract and add follow-on work.** Leave the original spec unchanged. Write the separately approved work through the grounding, slicing, and approval sections above, referencing the original spec and the new requirement. The original still owes every acceptance criterion; state any blocking order outside the spec bodies.
 4. Reconcile any affected blocking order through [Reconcile the blocking order](#3-reconcile-the-blocking-order). Present the completed amendment or new specs and dependency changes for approval, including all changed acceptance criteria. Use approval already explicit for that exact content; otherwise wait. Record the date and a reference to that approval with the change source in the amendment or new specs. Content approval grants no file or tracker-write permission. Without that permission, return the proposed records in the conversation; with it, follow the publication rules above for the authorized destination. Done when the approved effective contract, original requirements, change source, and new approval are identifiable, and the records and dependencies are either delivered in chat or written as authorized.
